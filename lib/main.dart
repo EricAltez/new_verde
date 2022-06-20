@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:new_verde/widgets/loginwidget.dart';
+import 'package:new_verde/pages/auth_page.dart';
+import 'package:new_verde/widgets/utils.dart';
 
 import 'firebase_options.dart';
 import 'pages/index.dart';
@@ -21,6 +23,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => MaterialApp(
+        scaffoldMessengerKey: Utils.messengerKey,
         navigatorKey: navigatorKey,
         debugShowCheckedModeBanner: false,
         title: 'Homepage',
