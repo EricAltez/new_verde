@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:new_verde/widgets/loginwidget.dart';
 import 'package:new_verde/pages/auth_page.dart';
 import 'package:new_verde/widgets/utils.dart';
 

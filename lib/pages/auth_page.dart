@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:new_verde/widgets/loginwidget.dart';
-import 'package:new_verde/widgets/sugnupwidget.dart';
+import 'package:new_verde/widgets/signupwidget.dart';
 
 class AuthPage extends StatefulWidget {
+  const AuthPage({Key? key}) : super(key: key);
+
   @override
   _AuthPageState createState() => _AuthPageState();
 }
