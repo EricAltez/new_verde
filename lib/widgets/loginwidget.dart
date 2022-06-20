@@ -1,10 +1,18 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:new_verde/main.dart';
 
 class LoginWidget extends StatefulWidget {
+  final VoidCallback onClickedSignUp;
+
+  const LoginWidget({
+    Key? key,
+    required this.onClickedSignUp,
+  }) : super(key: key);
+
   @override
-  State<LoginWidget> createState() => _LoginWidgetState();
+  _LoginWidgetState createState() => _LoginWidgetState();
 }
 
 class _LoginWidgetState extends State<LoginWidget> {
@@ -53,6 +61,22 @@ class _LoginWidgetState extends State<LoginWidget> {
               ),
               onPressed: signIn,
             ),
+            SizedBox(height: 24),
+            RichText(
+              text: TextSpan(
+                  style: TextStyle(color: Colors.black, fontSize: 20),
+                  text: 'No acount?  ',
+                  children: [
+                    TextSpan(
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = widget.onClickedSignUp,
+                      text: TextStyle(
+                        decoration: TextDecoration.underline,
+                        color: Theme.of(context).colorScheme.secondary,
+                      ),
+                    )
+                  ]),
+            )
           ],
         ),
       );
