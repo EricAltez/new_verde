@@ -44,7 +44,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                 cursorColor: Colors.black,
                 textInputAction: TextInputAction.next,
                 decoration: const InputDecoration(labelText: 'Email'),
-          -      autovalidateMode: AutovalidateMode.onUserInteraction,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
                 validator: (email) =>
                     email != null && !EmailValidator.validate(email)
                         ? 'Ingresar email'
