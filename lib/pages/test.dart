@@ -1,5 +1,0 @@
-// testing pull request
-
-/*
-asd
-*/

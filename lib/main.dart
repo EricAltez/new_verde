@@ -37,9 +37,10 @@ class MyApp extends StatelessWidget {
               } else if (snapshot.hasData) {
                 return const UserPage();
               } else {
-                return AuthPage();
+                return const AuthPage();
               }
             },
           ),
-        ));
+        )
+      );
   }
