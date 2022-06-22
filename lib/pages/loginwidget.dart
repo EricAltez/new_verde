@@ -29,78 +29,89 @@ class _LoginWidgetState extends State<LoginWidget> {
   }
 
   @override
-  Widget build(BuildContext context) => SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const SizedBox(height: 40),
-            TextField(
-              controller: emailController,
-              cursorColor: Colors.black,
-              textInputAction: TextInputAction.next,
-              decoration: const InputDecoration(labelText: 'Email'),
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        height: double.infinity,
+        width: double.infinity,
+        child: SafeArea(
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const SizedBox(height: 40),
+                TextField(
+                  controller: emailController,
+                  cursorColor: Colors.black,
+                  textInputAction: TextInputAction.next,
+                  decoration: const InputDecoration(labelText: 'Email'),
+                ),
+                const SizedBox(height: 4),
+                TextField(
+                  controller: passwordController,
+                  textInputAction: TextInputAction.done,
+                  decoration: const InputDecoration(labelText: 'Password'),
+                  obscureText: true,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                ElevatedButton.icon(
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: const Size.fromHeight(50),
+                  ),
+                  icon: const Icon(
+                    Icons.lock_open, size: 32
+                  ),
+                  label: const Text(
+                    'Sign In',
+                    style: TextStyle(fontSize: 24),
+                  ),
+                  onPressed: signIn,
+                ),
+                const SizedBox(height: 24),
+                RichText(
+                  text: TextSpan(
+                      style: const TextStyle(color: Colors.black, fontSize: 20),
+                      text: 'No acount?  ',
+                      children: [
+                        TextSpan(
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = widget.onClickedSignUp,
+                          text: 'Sign Up',
+                          style: TextStyle(
+                            decoration: TextDecoration.underline,
+                            color: Theme.of(context).colorScheme.secondary,
+                          ),
+                        ),
+                      ]),
+                ),
+              ],
             ),
-            const SizedBox(height: 4),
-            TextField(
-              controller: passwordController,
-              textInputAction: TextInputAction.done,
-              decoration: const InputDecoration(labelText: 'Password'),
-              obscureText: true,
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            ElevatedButton.icon(
-              style: ElevatedButton.styleFrom(
-                minimumSize: const Size.fromHeight(50),
-              ),
-              icon: const Icon(Icons.lock_open, size: 32),
-              label: const Text(
-                'Sign In',
-                style: TextStyle(fontSize: 24),
-              ),
-              onPressed: signIn,
-            ),
-            const SizedBox(height: 24),
-            RichText(
-              text: TextSpan(
-                  style: const TextStyle(color: Colors.black, fontSize: 20),
-                  text: 'No acount?  ',
-                  children: [
-                    TextSpan(
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = widget.onClickedSignUp,
-                      text: 'Sign Up',
-                      style: TextStyle(
-                        decoration: TextDecoration.underline,
-                        color: Theme.of(context).colorScheme.secondary,
-                      ),
-                    )
-                  ]),
-            )
-          ],
+          ),
         ),
-      );
-
-  Future signIn() async {
-    showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (context) => const Center(child: CircularProgressIndicator()),
+      ),
     );
 
-    try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: emailController.text.trim(),
-        password: passwordController.text.trim(),
+    Future signIn() async {
+      showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (context) => const Center(child: CircularProgressIndicator()),
       );
-    } on FirebaseAuthException catch (e) {
-      print(e);
 
-      Utils.showSnackBar(e.message);
+      try {
+        await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: emailController.text.trim(),
+          password: passwordController.text.trim(),
+        );
+      } on FirebaseAuthException catch (e) {
+        print(e);
+
+        Utils.showSnackBar(e.message);
+      }
+
+      navigatorKey.currentState!.popUntil((route) => route.isFirst);
     }
-
-    navigatorKey.currentState!.popUntil((route) => route.isFirst);
   }
 }
