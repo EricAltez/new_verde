@@ -32,28 +32,28 @@ class _SignUpWidgetState extends State<SignUpWidget> {
 
   @override
   Widget build(BuildContext context) => SingleChildScrollView(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(30),
       child: Form(
         key: formKey,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBox(height: 40),
+            const SizedBox(height: 25),
             TextFormField(
                 controller: emailController,
                 cursorColor: Colors.black,
                 textInputAction: TextInputAction.next,
                 decoration: const InputDecoration(labelText: 'Email'),
-                autovalidateMode: AutovalidateMode.onUserInteraction,
+          -      autovalidateMode: AutovalidateMode.onUserInteraction,
                 validator: (email) =>
                     email != null && !EmailValidator.validate(email)
-                        ? 'Enter a valid email'
+                        ? 'Ingresar email'
                         : null),
             const SizedBox(height: 4),
             TextFormField(
               controller: passwordController,
               textInputAction: TextInputAction.done,
-              decoration: const InputDecoration(labelText: 'Password'),
+              decoration: const InputDecoration(labelText: 'Contraseña'),
               autovalidateMode: AutovalidateMode.onUserInteraction,
               validator: (value) => value != null && value.length < 6
                   ? '6 characters minimun'
@@ -61,7 +61,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
               obscureText: true,
             ),
             const SizedBox(
-              height: 20,
+              height: 25,
             ),
             ElevatedButton.icon(
               style: ElevatedButton.styleFrom(
@@ -69,7 +69,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
               ),
               icon: const Icon(Icons.lock_open, size: 32),
               label: const Text(
-                'Sign Up',
+                'Ingresar',
                 style: TextStyle(fontSize: 24),
               ),
               onPressed: signUp,
@@ -78,7 +78,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
             RichText(
               text: TextSpan(
                   style: const TextStyle(color: Colors.black, fontSize: 20),
-                  text: 'Already have an acount?  ',
+                  text: 'Ya tiene una cuenta?  ',
                   children: [
                     TextSpan(
                       recognizer: TapGestureRecognizer()
