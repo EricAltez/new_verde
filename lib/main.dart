@@ -26,21 +26,22 @@ class MyApp extends StatelessWidget {
         navigatorKey: navigatorKey,
         debugShowCheckedModeBanner: false,
         title: 'Homepage',
-        home: Scaffold(
-          body: StreamBuilder<User?>(
-            stream: FirebaseAuth.instance.authStateChanges(),
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return const Center(child: CircularProgressIndicator());
-              } else if (snapshot.hasError) {
-                return const Center(child: Text('Someting went wrong'));
-              } else if (snapshot.hasData) {
-                return const UserPage();
-              } else {
-                return const AuthPage();
-              }
-            },
-          ),
-        )
+        home: const AddressPage(),
+        // home: Scaffold(
+        //   body: StreamBuilder<User?>(
+        //     stream: FirebaseAuth.instance.authStateChanges(),
+        //     builder: (context, snapshot) {
+        //       if (snapshot.connectionState == ConnectionState.waiting) {
+        //         return const Center(child: CircularProgressIndicator());
+        //       } else if (snapshot.hasError) {
+        //         return const Center(child: Text('Someting went wrong'));
+        //       } else if (snapshot.hasData) {
+        //         return const UserPage();
+        //       } else {
+        //         return const AuthPage();
+        //       }
+        //     },
+        //   ),
+        // )
       );
-  }
+}
