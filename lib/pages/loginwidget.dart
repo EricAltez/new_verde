@@ -31,7 +31,7 @@ class _LoginWidgetState extends State<LoginWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: SizedBox(
         height: double.infinity,
         width: double.infinity,
         child: SafeArea(
@@ -60,14 +60,12 @@ class _LoginWidgetState extends State<LoginWidget> {
                   style: ElevatedButton.styleFrom(
                     minimumSize: const Size.fromHeight(50),
                   ),
-                  icon: const Icon(
-                    Icons.lock_open, size: 32
-                  ),
+                  icon: const Icon(Icons.lock_open, size: 32),
                   label: const Text(
                     'Sign In',
                     style: TextStyle(fontSize: 24),
                   ),
-                  onPressed: signIn,
+                  onPressed: _signIn,
                 ),
                 const SizedBox(height: 24),
                 RichText(
@@ -92,26 +90,26 @@ class _LoginWidgetState extends State<LoginWidget> {
         ),
       ),
     );
+  }
 
-    Future signIn() async {
-      showDialog(
-        context: context,
-        barrierDismissible: false,
-        builder: (context) => const Center(child: CircularProgressIndicator()),
+  Future _signIn() async {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) => const Center(child: CircularProgressIndicator()),
+    );
+
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailController.text.trim(),
+        password: passwordController.text.trim(),
       );
+    } on FirebaseAuthException catch (e) {
+      print(e);
 
-      try {
-        await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: emailController.text.trim(),
-          password: passwordController.text.trim(),
-        );
-      } on FirebaseAuthException catch (e) {
-        print(e);
-
-        Utils.showSnackBar(e.message);
-      }
-
-      navigatorKey.currentState!.popUntil((route) => route.isFirst);
+      Utils.showSnackBar(e.message);
     }
+
+    navigatorKey.currentState!.popUntil((route) => route.isFirst);
   }
 }

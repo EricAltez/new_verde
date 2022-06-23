@@ -4,9 +4,11 @@ import 'package:new_verde/pages/user_form.dart';
 
 class UserPage extends StatelessWidget {
   const UserPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final user = FirebaseAuth.instance.currentUser!;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('User Page'),
@@ -49,7 +51,9 @@ class UserPage extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const UserForm()),
+                    MaterialPageRoute(
+                      builder: (context) => const UserForm(),
+                    ),
                   );
                 }),
           ],

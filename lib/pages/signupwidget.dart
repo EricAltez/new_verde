@@ -72,7 +72,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                 'Sign Up',
                 style: TextStyle(fontSize: 24),
               ),
-              onPressed: signUp,
+              onPressed: _signUp,
             ),
             const SizedBox(height: 24),
             RichText(
@@ -95,7 +95,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
         ),
       ));
 
-  Future signUp() async {
+  Future _signUp() async {
     final isValid = formKey.currentState!.validate();
     if (!isValid) return;
 
