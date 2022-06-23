@@ -67,7 +67,7 @@ class _LoginWidgetState extends State<LoginWidget> {
               text: TextSpan(
                   style: const TextStyle(color: Colors.black, fontSize: 20),
                   text: 'No acount?  ',
-                  children: [
+                children: [
                     TextSpan(
                       recognizer: TapGestureRecognizer()
                         ..onTap = widget.onClickedSignUp,
