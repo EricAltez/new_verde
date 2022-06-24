@@ -23,7 +23,11 @@ class HomePage extends StatelessWidget {
         child: SafeArea(
           child: Column(
             children: [
-              const Text('Pagina de usuario'),
+              Image.network(
+                'https://farm3.staticflickr.com/2897/14464606763_5473161990.jpg',
+                alignment: Alignment.topCenter,
+                height: 300,
+              ),
               Expanded(
                 child: StreamBuilder<QuerySnapshot>(
                   builder: (_, AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -40,55 +44,17 @@ class HomePage extends StatelessWidget {
                         // return UserModel.fromJson({"id": doc.id, ...document}); el documento con su respectivo id.
                       }).toList();
 
-                      return Column(children: [
-                        SizedBox(
-                          height: 300,
-                          child: Image.network(
-                              'https://farm3.staticflickr.com/2897/14464606763_5473161990.jpg'),
+                      return ListView.builder(
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: listOfDocs.length,
+                        itemBuilder: (_, int idx) => Container(
+                          child: Column(
+                            children: [Text('')],
+                          ),
+                          height: 50,
+                          width: 50,
                         ),
-                        Expanded(
-                            child: ListView.builder(
-                          physics: const NeverScrollableScrollPhysics(),
-                          itemCount: listOfDocs.length,
-                          itemBuilder: (_, int idx) =>
-                              Text("User Name: ${listOfDocs[idx].name}"),
-                        )),
-                        Expanded(
-                            child: ListView.builder(
-                          physics: const NeverScrollableScrollPhysics(),
-                          itemCount: listOfDocs.length,
-                          itemBuilder: (_, int idx) => Text(
-                              "User Points: ${((listOfDocs[idx].organico) + (listOfDocs[idx].carton) + (listOfDocs[idx].plastico))}"),
-                        )),
-                        Expanded(
-                            child: ListView.builder(
-                          physics: const NeverScrollableScrollPhysics(),
-                          itemCount: listOfDocs.length,
-                          itemBuilder: (_, int idx) => Text(
-                              "Scan Number: ${((listOfDocs[idx].organico) + (listOfDocs[idx].carton) + (listOfDocs[idx].plastico)).toString()}"),
-                        )),
-                        Expanded(
-                            child: ListView.builder(
-                          physics: const NeverScrollableScrollPhysics(),
-                          itemCount: listOfDocs.length,
-                          itemBuilder: (_, int idx) => Text(
-                              "Organico: ${(listOfDocs[idx].organico).toString()}"),
-                        )),
-                        Expanded(
-                            child: ListView.builder(
-                          physics: const NeverScrollableScrollPhysics(),
-                          itemCount: listOfDocs.length,
-                          itemBuilder: (_, int idx) => Text(
-                              "Carton: ${(listOfDocs[idx].carton).toString()}"),
-                        )),
-                        Expanded(
-                            child: ListView.builder(
-                          physics: const NeverScrollableScrollPhysics(),
-                          itemCount: listOfDocs.length,
-                          itemBuilder: (_, int idx) => Text(
-                              "Plastico: ${(listOfDocs[idx].plastico).toString()}"),
-                        )),
-                      ]);
+                      );
                     }
 
                     return const Text('Hola');
