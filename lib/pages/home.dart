@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:new_verde/pages/user_form.dart';
 
 class UserPage extends StatelessWidget {
   const UserPage({Key? key}) : super(key: key);
@@ -39,23 +38,6 @@ class UserPage extends StatelessWidget {
               ),
               onPressed: () => FirebaseAuth.instance.signOut(),
             ),
-            ElevatedButton.icon(
-                style: ElevatedButton.styleFrom(
-                  minimumSize: const Size.fromHeight(50),
-                ),
-                icon: const Icon(Icons.arrow_back, size: 32),
-                label: const Text(
-                  'User data',
-                  style: TextStyle(fontSize: 24),
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const UserForm(),
-                    ),
-                  );
-                }),
           ],
         ),
       ),

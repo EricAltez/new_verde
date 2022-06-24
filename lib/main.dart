@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:new_verde/pages/auth_page.dart';
+import 'package:new_verde/pages/map.dart';
+import 'package:new_verde/widgets/auth_page.dart';
 import 'package:new_verde/widgets/utils.dart';
 
 import 'firebase_options.dart';
@@ -22,26 +23,36 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => MaterialApp(
-        scaffoldMessengerKey: Utils.messengerKey,
-        navigatorKey: navigatorKey,
-        debugShowCheckedModeBanner: false,
-        title: 'Homepage',
-        home: const AddressPage(),
-        // home: Scaffold(
-        //   body: StreamBuilder<User?>(
-        //     stream: FirebaseAuth.instance.authStateChanges(),
-        //     builder: (context, snapshot) {
-        //       if (snapshot.connectionState == ConnectionState.waiting) {
-        //         return const Center(child: CircularProgressIndicator());
-        //       } else if (snapshot.hasError) {
-        //         return const Center(child: Text('Someting went wrong'));
-        //       } else if (snapshot.hasData) {
-        //         return const UserPage();
-        //       } else {
-        //         return const AuthPage();
-        //       }
-        //     },
-        //   ),
-        // )
-      );
+      scaffoldMessengerKey: Utils.messengerKey,
+      navigatorKey: navigatorKey,
+      debugShowCheckedModeBanner: false,
+      title: 'Homepage',
+      // home: const AddressPage(),
+      home: Scaffold(
+        body: StreamBuilder<User?>(
+          stream: FirebaseAuth.instance.authStateChanges(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(child: CircularProgressIndicator());
+            } else if (snapshot.hasError) {
+              return const Center(child: Text('Someting went wrong'));
+            } else if (snapshot.hasData) {
+              return const AddressPage(
+                
+              );
+            } else {
+              return const AuthPage();
+            }
+          },
+        ),  
+      ),
+      routes: {
+        '/scanpage': (context) => const ScanPage(),
+        '/mappage': (context) => const MapPage(),
+        '/scancarton': (context) => const CartonScan(),
+        '/scanorganico': (context) => const OrganicoScan(),
+        '/scanplastico': (context) => const PlasticoScan(),
+      },
+    );
+      
 }

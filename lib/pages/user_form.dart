@@ -10,7 +10,7 @@ class UserForm extends StatefulWidget {
 
 class _UserFormState extends State<UserForm> {
   final controller = TextEditingController();
-  final CollectionReference _Users =
+  final CollectionReference _users =
       FirebaseFirestore.instance.collection('Users');
   final int paginaActual = 1;
 
@@ -23,7 +23,7 @@ class _UserFormState extends State<UserForm> {
           Image.network(
               'https://www.infobae.com/new-resizer/3Li_m1keD_SbaaC0kpmpvqEPdmE=/768x432/filters:format(webp):quality(85)/s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2019/08/29114706/shutterstock_577672450.jpg'),
           StreamBuilder(
-            stream: _Users.snapshots(),
+            stream: _users.snapshots(),
             builder: (context, AsyncSnapshot<QuerySnapshot> streamSnapshot) {
               if (streamSnapshot.hasData) {
                 return ListView.builder(
@@ -38,10 +38,7 @@ class _UserFormState extends State<UserForm> {
                           title: Text(documentSnapshot['Name']),
                           subtitle: Text(documentSnapshot['Email']),
                           trailing: Text(
-                            ('points = ' +
-                                documentSnapshot['Points'] +
-                                ' - Nº scan = ' +
-                                documentSnapshot['ScanN']),
+                            ("points = ${documentSnapshot['Points']} - Nº scan = ${documentSnapshot['ScanN']}"),
                           ),
                         ),
                       );

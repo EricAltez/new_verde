@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 
-class MapPage extends StatelessWidget {
-  const MapPage({Key? key}) : super(key: key);
+class CartonScan extends StatelessWidget {
+  const CartonScan({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
           const Center(
-            child: Text('MapPage'),
+            child: Text('sacan c'),
           ),
           TextButton(
           child: const Text('Pop!'),
