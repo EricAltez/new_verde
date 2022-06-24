@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:new_verde/models/user.dart';
+import 'package:new_verde/pages/map.dart';
+import 'package:new_verde/pages/scanpage.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AddressPage extends StatelessWidget {
@@ -117,8 +119,8 @@ class AddressPage extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(
           onTap: (index) {
             if (index == 2) launch("https://3956holberton.blogspot.com/");
-            if (index == 1) Navigator.pushNamed(context, '/scanpage');
-            if (index == 0) Navigator.pushNamed(context, '/mappage');
+            if (index == 1) Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const ScanPage()));
+            if (index == 0) Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const MapPage()));
           },
           currentIndex: paginaActual,
           items: const [

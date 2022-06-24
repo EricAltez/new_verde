@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:new_verde/pages/map.dart';
-import 'package:new_verde/widgets/auth_page.dart';
-import 'package:new_verde/widgets/utils.dart';
 
 import 'firebase_options.dart';
+import 'package:new_verde/pages/map.dart';
+import 'package:new_verde/widgets/utils.dart';
 import 'pages/index.dart';
 
 Future<void> main() async {
@@ -26,32 +24,15 @@ class MyApp extends StatelessWidget {
       scaffoldMessengerKey: Utils.messengerKey,
       navigatorKey: navigatorKey,
       debugShowCheckedModeBanner: false,
-      title: 'Homepage',
-      // home: const AddressPage(),
-      home: Scaffold(
-        body: StreamBuilder<User?>(
-          stream: FirebaseAuth.instance.authStateChanges(),
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const Center(child: CircularProgressIndicator());
-            } else if (snapshot.hasError) {
-              return const Center(child: Text('Someting went wrong'));
-            } else if (snapshot.hasData) {
-              return const AddressPage(
-                
-              );
-            } else {
-              return const AuthPage();
-            }
-          },
-        ),  
-      ),
+      initialRoute: 'home',
       routes: {
-        '/scanpage': (context) => const ScanPage(),
-        '/mappage': (context) => const MapPage(),
-        '/scancarton': (context) => const CartonScan(),
-        '/scanorganico': (context) => const OrganicoScan(),
-        '/scanplastico': (context) => const PlasticoScan(),
+        'address': (_) => const AddressPage(),
+        'home': (_) => const UserPage(),
+        'mappage': (_) => const MapPage(),
+        'scancarton': (_) => const CartonScan(),
+        'scanorganico': (_) => const OrganicoScan(),
+        'scanpage': (_) => const ScanPage(),
+        'scanplastico': (_) => const PlasticoScan(),
       },
     );
       

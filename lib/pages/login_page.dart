@@ -24,7 +24,6 @@ class _LoginWidgetState extends State<LoginWidget> {
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
-
     super.dispose();
   }
 
@@ -104,6 +103,8 @@ class _LoginWidgetState extends State<LoginWidget> {
         email: emailController.text.trim(),
         password: passwordController.text.trim(),
       );
+
+      Navigator.of(context).pushNamed('address');
     } on FirebaseAuthException catch (e) {
       print(e);
 
