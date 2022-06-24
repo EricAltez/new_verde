@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import 'firebase_options.dart';
@@ -20,20 +21,24 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => MaterialApp(
+  Widget build(BuildContext context) {
+    final user = FirebaseAuth.instance.currentUser;
+
+    return MaterialApp(
       scaffoldMessengerKey: Utils.messengerKey,
       navigatorKey: navigatorKey,
       debugShowCheckedModeBanner: false,
-      initialRoute: 'home',
+      initialRoute: user != null ? 'home' : 'login',
       routes: {
-        'address': (_) => const AddressPage(),
-        'home': (_) => const UserPage(),
+        'home': (_) => const HomePage(),
+        'login': (_) => const LoginPage(),
         'mappage': (_) => const MapPage(),
         'scancarton': (_) => const CartonScan(),
-        'scanorganico': (_) => const OrganicoScan(),
+        'scanorganico': (_) => const ScanOrganico(),
         'scanpage': (_) => const ScanPage(),
-        'scanplastico': (_) => const PlasticoScan(),
+        'scanplastico': (_) => const ScanPlastico(),
+        'signup': (_) => const SignUpPage(),
       },
     );
-      
+  }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class PlasticoScan extends StatelessWidget {
-  const PlasticoScan({Key? key}) : super(key: key);
+class ScanPlastico extends StatelessWidget {
+  const ScanPlastico({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,11 +12,11 @@ class PlasticoScan extends StatelessWidget {
             child: Text('scan p'),
           ),
           TextButton(
-          child: const Text('Pop!'),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
+            child: const Text('Pop!'),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
         ],
       ),
     );

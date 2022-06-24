@@ -1,34 +1,16 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:new_verde/main.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:new_verde/widgets/utils.dart';
 
-class LoginWidget extends StatefulWidget {
-  final VoidCallback onClickedSignUp;
-
-  const LoginWidget({
-    Key? key,
-    required this.onClickedSignUp,
-  }) : super(key: key);
-
-  @override
-  _LoginWidgetState createState() => _LoginWidgetState();
-}
-
-class _LoginWidgetState extends State<LoginWidget> {
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
-
-  @override
-  void dispose() {
-    emailController.dispose();
-    passwordController.dispose();
-    super.dispose();
-  }
+class LoginPage extends StatelessWidget {
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final emailController = TextEditingController();
+    final passwordController = TextEditingController();
+
     return Scaffold(
       body: SizedBox(
         height: double.infinity,
@@ -42,8 +24,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                 TextField(
                   controller: emailController,
                   cursorColor: Colors.black,
-                  textInputAction: TextInputAction.next,
                   decoration: const InputDecoration(labelText: 'Email'),
+                  keyboardType: TextInputType.emailAddress,
+                  textInputAction: TextInputAction.next,
                 ),
                 const SizedBox(height: 4),
                 TextField(
@@ -64,24 +47,27 @@ class _LoginWidgetState extends State<LoginWidget> {
                     'Sign In',
                     style: TextStyle(fontSize: 24),
                   ),
-                  onPressed: _signIn,
+                  onPressed: () => _signIn(context, emailController.text.trim(),
+                      passwordController.text.trim()),
                 ),
                 const SizedBox(height: 24),
-                RichText(
-                  text: TextSpan(
-                      style: const TextStyle(color: Colors.black, fontSize: 20),
-                      text: 'No acount?  ',
-                      children: [
-                        TextSpan(
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = widget.onClickedSignUp,
-                          text: 'Sign Up',
-                          style: TextStyle(
-                            decoration: TextDecoration.underline,
-                            color: Theme.of(context).colorScheme.secondary,
-                          ),
+                Row(
+                  children: [
+                    const Text(
+                      'No account?',
+                      style: TextStyle(color: Colors.black, fontSize: 20),
+                    ),
+                    MaterialButton(
+                      onPressed: () => Navigator.pushNamed(context, ''),
+                      child: Text(
+                        'Sign Up',
+                        style: TextStyle(
+                          decoration: TextDecoration.underline,
+                          color: Theme.of(context).colorScheme.secondary,
                         ),
-                      ]),
+                      ),
+                    )
+                  ],
                 ),
               ],
             ),
@@ -91,26 +77,21 @@ class _LoginWidgetState extends State<LoginWidget> {
     );
   }
 
-  Future _signIn() async {
+  void _signIn(BuildContext context, String email, String password) {
     showDialog(
       context: context,
       barrierDismissible: false,
       builder: (context) => const Center(child: CircularProgressIndicator()),
     );
 
-    try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: emailController.text.trim(),
-        password: passwordController.text.trim(),
-      );
+    FirebaseAuth.instance
+        .signInWithEmailAndPassword(
+          email: email,
+          password: password,
+        )
+        .then((value) => Navigator.of(context).pushReplacementNamed('home'))
+        .catchError((error) => Utils.showSnackBar(error.message));
 
-      Navigator.of(context).pushNamed('address');
-    } on FirebaseAuthException catch (e) {
-      print(e);
-
-      Utils.showSnackBar(e.message);
-    }
-
-    navigatorKey.currentState!.popUntil((route) => route.isFirst);
+    // navigatorKey.currentState!.popUntil((route) => route.isFirst);
   }
 }

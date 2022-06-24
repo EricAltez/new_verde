@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class OrganicoScan extends StatelessWidget {
-  const OrganicoScan({Key? key}) : super(key: key);
+class ScanOrganico extends StatelessWidget {
+  const ScanOrganico({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,11 +12,11 @@ class OrganicoScan extends StatelessWidget {
             child: Text('scan o'),
           ),
           TextButton(
-          child: const Text('Pop!'),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
+            child: const Text('Pop!'),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
         ],
       ),
     );

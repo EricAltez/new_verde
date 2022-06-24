@@ -18,15 +18,11 @@ class ScanPage extends StatelessWidget {
             },
           ),
           ElevatedButton(
-            onPressed: () => Navigator.pushNamed(context, 'scanpage'),
+            onPressed: () => Navigator.pushNamed(context, 'scanorganico'),
             child: null,
           ),
           ElevatedButton(
-            onPressed: () => Navigator.pushNamed(context, 'organicoscan'),
-            child: null,
-          ),
-          ElevatedButton(
-            onPressed: () => Navigator.pushNamed(context, 'plasticoscan'),
+            onPressed: () => Navigator.pushNamed(context, 'scanplastico'),
             child: null,
           ),
         ],
