@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:new_verde/pages/index.dart';
 
 import 'package:new_verde/widgets/utils.dart';
 
@@ -25,7 +26,10 @@ class LoginPage extends StatelessWidget {
                 TextField(
                   controller: emailController,
                   cursorColor: Colors.black,
-                  decoration: const InputDecoration(labelText: 'Email'),
+                  decoration: const InputDecoration(
+                      labelText: 'Email',
+                      border: OutlineInputBorder(),
+                      prefixIcon: Icon(Icons.email)),
                   keyboardType: TextInputType.emailAddress,
                   textInputAction: TextInputAction.next,
                 ),
@@ -33,7 +37,10 @@ class LoginPage extends StatelessWidget {
                 TextField(
                   controller: passwordController,
                   textInputAction: TextInputAction.done,
-                  decoration: const InputDecoration(labelText: 'Password'),
+                  decoration: const InputDecoration(
+                      labelText: 'Contraseña',
+                      border: OutlineInputBorder(),
+                      prefixIcon: Icon(Icons.email)),
                   obscureText: true,
                 ),
                 const SizedBox(
@@ -41,11 +48,12 @@ class LoginPage extends StatelessWidget {
                 ),
                 ElevatedButton.icon(
                   style: ElevatedButton.styleFrom(
+                    primary: Colors.lightGreen,
                     minimumSize: const Size.fromHeight(50),
                   ),
                   icon: const Icon(Icons.lock_open, size: 32),
                   label: const Text(
-                    'Sign In',
+                    'Ingresar',
                     style: TextStyle(fontSize: 24),
                   ),
                   onPressed: () => _signIn(context, emailController.text.trim(),
@@ -55,13 +63,14 @@ class LoginPage extends StatelessWidget {
                 Row(
                   children: [
                     const Text(
-                      'No account?',
+                      'No tienes cuenta?',
                       style: TextStyle(color: Colors.black, fontSize: 20),
                     ),
                     MaterialButton(
-                      onPressed: () => Navigator.pushNamed(context, ''),
+                      onPressed: () =>
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpPage()),),
                       child: Text(
-                        'Sign Up',
+                        'Registrate',
                         style: TextStyle(
                           decoration: TextDecoration.underline,
                           color: Theme.of(context).colorScheme.secondary,
@@ -74,8 +83,8 @@ class LoginPage extends StatelessWidget {
             ),
           ),
         ),
-    ),
-  );
+      ),
+    );
   }
 
   void _signIn(BuildContext context, String email, String password) {

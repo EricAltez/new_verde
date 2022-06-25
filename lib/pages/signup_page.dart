@@ -23,22 +23,29 @@ class SignUpPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Image.asset('images/Logo_Verde.jpg'),
                 const SizedBox(height: 40),
                 TextFormField(
                     controller: emailController,
                     cursorColor: Colors.black,
                     textInputAction: TextInputAction.next,
-                    decoration: const InputDecoration(labelText: 'Email'),
+                    decoration: const InputDecoration(
+                      labelText: 'Email',
+                      border: OutlineInputBorder(),
+                      prefixIcon: Icon(Icons.email)),
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     validator: (email) =>
                         email != null && !EmailValidator.validate(email)
-                            ? 'Enter a valid email'
+                            ? 'Ingresa un email válido!'
                             : null),
                 const SizedBox(height: 4),
                 TextFormField(
                   controller: passwordController,
                   textInputAction: TextInputAction.done,
-                  decoration: const InputDecoration(labelText: 'Password'),
+                  decoration: const InputDecoration(
+                    labelText: 'Password',
+                    border: OutlineInputBorder(),
+                      prefixIcon: Icon(Icons.email)),
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   validator: (value) => value != null && value.length < 6
                       ? '6 characters minimun'
@@ -50,11 +57,12 @@ class SignUpPage extends StatelessWidget {
                 ),
                 ElevatedButton.icon(
                   style: ElevatedButton.styleFrom(
+                    primary: Colors.lightGreen,
                     minimumSize: const Size.fromHeight(50),
                   ),
                   icon: const Icon(Icons.lock_open, size: 32),
                   label: const Text(
-                    'Sign Up',
+                    'Registrarse',
                     style: TextStyle(fontSize: 24),
                   ),
                   onPressed: () => _signUp(
