@@ -65,11 +65,12 @@ class HomePage extends StatelessWidget {
               ),
               ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
+                  primary: Colors.lightGreen,
                   minimumSize: const Size.fromHeight(50),
                 ),
                 icon: const Icon(Icons.arrow_back, size: 32),
                 label: const Text(
-                  'Sign Out',
+                  'Desconectarse',
                   style: TextStyle(fontSize: 24),
                 ),
                 onPressed: () {
