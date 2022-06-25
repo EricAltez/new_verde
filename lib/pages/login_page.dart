@@ -20,6 +20,7 @@ class LoginPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Image.asset('images/Logo_Verde.jpg'),
                 const SizedBox(height: 40),
                 TextField(
                   controller: emailController,
@@ -73,8 +74,8 @@ class LoginPage extends StatelessWidget {
             ),
           ),
         ),
-      ),
-    );
+    ),
+  );
   }
 
   void _signIn(BuildContext context, String email, String password) {
