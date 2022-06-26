@@ -20,9 +20,9 @@ class _MapPageState extends State<MapPage> {
 
   _onStyleLoadedCallback() {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      content: Text("Style loaded :)"),
+      content: const Text("Style loaded :)"),
       backgroundColor: Theme.of(context).primaryColor,
-      duration: Duration(seconds: 1),
+      duration: const Duration(seconds: 1),
     ));
   }
 
