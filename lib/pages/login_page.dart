@@ -54,11 +54,11 @@ class LoginPage extends StatelessWidget {
                 Row(
                   children: [
                     const Text(
-                      'No account?',
+                      'Aun no tiene una cuenta?',
                       style: TextStyle(color: Colors.black, fontSize: 20),
                     ),
                     MaterialButton(
-                      onPressed: () => Navigator.pushNamed(context, ''),
+                      onPressed: () => Navigator.pushNamed(context, 'signup'),
                       child: Text(
                         'Sign Up',
                         style: TextStyle(

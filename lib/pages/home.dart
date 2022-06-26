@@ -1,22 +1,69 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:new_verde/models/user.dart';
-import 'package:url_launcher/url_launcher.dart';
 
-import '../widgets/utils.dart';
-
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    // final userId = FirebaseAuth.instance.currentUser;
+  _HomePageState createState() => _HomePageState();
+}
 
-    final usersReference = FirebaseFirestore.instance.collection('users');
-    // Obtención de Stream de elementos de la db.
-    final users = usersReference.snapshots();
-    const int paginaActual = 1;
+class _HomePageState extends State<HomePage> {
+  final CollectionReference _users =
+      FirebaseFirestore.instance.collection('users');
+  //final _user = _users.where(id);
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: FutureBuilder<DocumentSnapshot>(
+      future: _users.doc('FLfuMOeM7wkBWziXLQUs').get(),
+      builder:
+          (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+        if (snapshot.hasError) {
+          return const Text("Something went wrong");
+        }
+
+        if (snapshot.hasData && !snapshot.data!.exists) {
+          return const Text("Document does not exist");
+        }
+
+        if (snapshot.connectionState == ConnectionState.done) {
+          Map<String, dynamic> data =
+              snapshot.data!.data() as Map<String, dynamic>;
+          return Text("Full Name: ${data['name']} ${data['points']}");
+        }
+
+        return const Text("loading");
+      },
+    ));
+  }
+
+  /*stream: _users.snapshots(),
+        builder: (context, AsyncSnapshot<QuerySnapshot> streamSnapshot) {
+          if (streamSnapshot.hasData) {
+            return ListView.builder(
+              itemCount: streamSnapshot.data!.docs.length,
+              itemBuilder: (context, index) {
+                final DocumentSnapshot documentSnapshot =
+                    streamSnapshot.data!.docs[0];
+                return Card(
+                  margin: const EdgeInsets.all(10),
+                  child: ListTile(
+                    title: Text(documentSnapshot['name']),
+                  ),
+                );
+              },
+            );
+          }
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        },
+      ),
+    );
+  }
+}*/
+  /*const int paginaActual = 1;
 
     return Scaffold(
       body: Center(
@@ -43,20 +90,18 @@ class HomePage extends StatelessWidget {
                         return UserModel.fromJson(document);
                         // return UserModel.fromJson({"id": doc.id, ...document}); el documento con su respectivo id.
                       }).toList();
-
                       return ListView.builder(
                         physics: const NeverScrollableScrollPhysics(),
                         itemCount: listOfDocs.length,
                         itemBuilder: (_, int idx) => Container(
                           child: Column(
-                            children: [Text('')],
+                            children: [Text('${UserModel.name}')],
                           ),
                           height: 50,
                           width: 50,
                         ),
                       );
                     }
-
                     return const Text('Hola');
                   },
                   // Consumo de Stream (autopista) por parte del StreamBuilder
@@ -86,7 +131,8 @@ class HomePage extends StatelessWidget {
       ),
       bottomNavigationBar: BottomNavigationBar(
           onTap: (index) {
-            if (index == 2) launch("https://3956holberton.blogspot.com/");
+            if (index == 2)
+              launchUrlString("https://3956holberton.blogspot.com/");
             if (index == 1) Navigator.pushNamed(context, 'scanpage');
             if (index == 0) Navigator.pushNamed(context, 'mappage');
           },
@@ -100,4 +146,6 @@ class HomePage extends StatelessWidget {
           ]),
     );
   }
+}
+*/
 }

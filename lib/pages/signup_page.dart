@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:new_verde/main.dart';
-import 'package:flutter/gestures.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:new_verde/widgets/utils.dart';
 
@@ -15,7 +14,7 @@ class SignUpPage extends StatelessWidget {
     final passwordController = TextEditingController();
 
     return Scaffold(
-      body: SizedBox(
+      body: Container(
         height: double.infinity,
         width: double.infinity,
         child: SafeArea(
@@ -67,13 +66,13 @@ class SignUpPage extends StatelessWidget {
                 Row(
                   children: [
                     const Text(
-                      'No account?',
+                      'Ya tiene una cuenta?',
                       style: TextStyle(color: Colors.black, fontSize: 20),
                     ),
                     MaterialButton(
-                      onPressed: () => Navigator.pushNamed(context, ''),
+                      onPressed: () => Navigator.pushNamed(context, 'login'),
                       child: Text(
-                        'Sign Up',
+                        'Log In',
                         style: TextStyle(
                           decoration: TextDecoration.underline,
                           color: Theme.of(context).colorScheme.secondary,
