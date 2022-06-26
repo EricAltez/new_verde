@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:new_verde/pages/auth_page.dart';
-import 'package:new_verde/widgets/utils.dart';
-
 import 'firebase_options.dart';
+import 'package:new_verde/pages/map.dart';
+import 'package:new_verde/widgets/utils.dart';
 import 'pages/index.dart';
 
-Future<void> main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
@@ -21,26 +20,26 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => MaterialApp(
-        scaffoldMessengerKey: Utils.messengerKey,
-        navigatorKey: navigatorKey,
-        debugShowCheckedModeBanner: false,
-        title: 'Homepage',
-        home: Scaffold(
-          body: StreamBuilder<User?>(
-            stream: FirebaseAuth.instance.authStateChanges(),
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return const Center(child: CircularProgressIndicator());
-              } else if (snapshot.hasError) {
-                return const Center(child: Text('Someting went wrong'));
-              } else if (snapshot.hasData) {
-                return const UserPage();
-              } else {
-                return const AuthPage();
-              }
-            },
-          ),
-        )
-      );
+  Widget build(BuildContext context) {
+    final user = FirebaseAuth.instance.currentUser;
+
+    return MaterialApp(
+      scaffoldMessengerKey: Utils.messengerKey,
+      navigatorKey: navigatorKey,
+      debugShowCheckedModeBanner: false,
+      initialRoute: user != null ? 'home' : 'login',
+      routes: {
+        'home': (_) =>  const HomePage(),
+        'login': (_) => const LoginPage(),
+        'mappage': (_) => const MapPage(),
+        'scancarton': (_) => const CartonScan(),
+        'scanorganico': (_) => const ScanOrganico(),
+        'scanpage': (_) => const ScanPage(),
+        'scanplastico': (_) => const ScanPlastico(),
+        'signup': (_) => const SignUpPage(),
+      },
+    );
   }
+}
+
+

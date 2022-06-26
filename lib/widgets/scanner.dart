@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
-class scanner extends StatefulWidget {
-  const scanner({Key? key}) : super(key: key);
+class Scanner extends StatefulWidget {
+  const Scanner({Key? key}) : super(key: key);
 
   @override
-  State<scanner> createState() => _scannerState();
+  State<Scanner> createState() => _ScannerState();
 }
 
-class _scannerState extends State<scanner> {
+class _ScannerState extends State<Scanner> {
    String _scanBarcode = 'Unknown';
 
   @override
@@ -72,7 +72,7 @@ class _scannerState extends State<scanner> {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-            appBar: AppBar(title: const Text('Barcode scan')),
+            appBar: AppBar(title: const Text('QR scan')),
             body: Builder(builder: (BuildContext context) {
               return Container(
                   alignment: Alignment.center,

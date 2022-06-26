@@ -9,16 +9,14 @@ class ScanButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final userId = FirebaseAuth.instance.currentUser?.uid;
     final CollectionReference records =
-        FirebaseFirestore.instance.collection('records');
+        FirebaseFirestore.instance.collection('users');
 
     return FloatingActionButton(
       elevation: 0,
       onPressed: () async {
         try {
           await records.add({
-            "type": "geo",
             "user": userId,
-            "value": "-33.977,-70.777",
           });
         } catch (e) {
           showDialog(
