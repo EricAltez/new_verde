@@ -15,72 +15,78 @@ class LoginPage extends StatelessWidget {
         height: double.infinity,
         width: double.infinity,
         child: SafeArea(
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset('images/Logo_Verde.jpg'),
-                const SizedBox(height: 40),
-                TextField(
-                  controller: emailController,
-                  cursorColor: Colors.black,
-                  decoration: const InputDecoration(
-                      labelText: 'Email',
-                      border: OutlineInputBorder(),
-                      prefixIcon: Icon(Icons.email)),
-                  keyboardType: TextInputType.emailAddress,
-                  textInputAction: TextInputAction.next,
-                ),
-                const SizedBox(height: 4),
-                TextField(
-                  controller: passwordController,
-                  textInputAction: TextInputAction.done,
-                  decoration: const InputDecoration(
-                      labelText: 'Contraseña',
-                      border: OutlineInputBorder(),
-                      prefixIcon: Icon(Icons.email)),
-                  obscureText: true,
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                ElevatedButton.icon(
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.lightGreen,
-                    minimumSize: const Size.fromHeight(50),
-                  ),
-                  icon: const Icon(Icons.lock_open, size: 32),
-                  label: const Text(
-                    'Ingresar',
-                    style: TextStyle(fontSize: 24),
-                  ),
-                  onPressed: () => _signIn(context, emailController.text.trim(),
-                      passwordController.text.trim()),
-                ),
-                const SizedBox(height: 24),
-                Row(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                vertical: 15,
+                horizontal: 5,
+              ),
+              child:
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
-                      'Aun no tiene una cuenta?',
-                      style: TextStyle(color: Colors.black, fontSize: 20),
+                    Expanded(
+                      child: Image.asset('images/Logo_Verde2.jpg')
                     ),
-                    MaterialButton(
-                      onPressed: () => Navigator.pushNamed(context, 'signup'),
-                      child: Text(
-                        'Registrate',
-                        style: TextStyle(
-                          decoration: TextDecoration.underline,
-                          color: Theme.of(context).colorScheme.secondary,
-                        ),
+                    TextField(
+                      controller: emailController,
+                      cursorColor: Colors.black,
+                      decoration: const InputDecoration(
+                          labelText: 'Email',
+                          border: OutlineInputBorder(),
+                          prefixIcon: Icon(Icons.email)),
+                      keyboardType: TextInputType.emailAddress,
+                      textInputAction: TextInputAction.next,
+                    ),
+                    const SizedBox(height: 4),
+                    TextField(
+                      controller: passwordController,
+                      textInputAction: TextInputAction.done,
+                      decoration: const InputDecoration(
+                          labelText: 'Contraseña',
+                          border: OutlineInputBorder(),
+                          prefixIcon: Icon(Icons.email)),
+                      obscureText: true,
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    ElevatedButton.icon(
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.lightGreen,
+                        minimumSize: const Size.fromHeight(50),
                       ),
-                    )
+                      icon: const Icon(Icons.lock_open, size: 32),
+                      label: const Text(
+                        'Ingresar',
+                        style: TextStyle(fontSize: 24),
+                      ),
+                      onPressed: () => _signIn(context, emailController.text.trim(),
+                          passwordController.text.trim()),
+                    ),
+                    const SizedBox(height: 15),
+                    Row(
+                      children: [
+                        const Text(
+                          'Aun no tiene una cuenta?',
+                          style: TextStyle(color: Colors.black, fontSize: 20),
+                        ),
+                        MaterialButton(
+                          onPressed: () => Navigator.pushNamed(context, 'signup'),
+                          child: Text(
+                            'Registrate',
+                            style: TextStyle(
+                              decoration: TextDecoration.underline,
+                              color: Theme.of(context).colorScheme.secondary,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
                   ],
                 ),
-              ],
             ),
           ),
         ),
-      ),
     );
   }
 

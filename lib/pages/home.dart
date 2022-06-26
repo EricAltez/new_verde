@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -9,6 +10,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final paginaActual = 1;
   final CollectionReference _users =
       FirebaseFirestore.instance.collection('users');
   //final _user = _users.where(id);
@@ -30,7 +32,27 @@ class _HomePageState extends State<HomePage> {
         if (snapshot.connectionState == ConnectionState.done) {
           Map<String, dynamic> data =
               snapshot.data!.data() as Map<String, dynamic>;
-          return Text("Full Name: ${data['name']} ${data['points']}");
+          return Scaffold(
+            body: Column(),
+            bottomNavigationBar: BottomNavigationBar(
+          onTap: (index) {
+            if (index == 2) {
+              launchUrlString("https://3956holberton.blogspot.com/");
+            }
+            if (index == 1) Navigator.pushNamed(context, 'scanpage');
+            if (index == 0) Navigator.pushNamed(context, 'mappage');
+          },
+          currentIndex: paginaActual,
+          items: const [
+            BottomNavigationBarItem(icon: Icon(Icons.map), label: 'map'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.qr_code), label: 'qr_scaner'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.text_format), label: 'blogs'),
+          ]),
+
+          );
+
         }
 
         return const Text("loading");
@@ -129,24 +151,5 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-          onTap: (index) {
-            if (index == 2)
-              launchUrlString("https://3956holberton.blogspot.com/");
-            if (index == 1) Navigator.pushNamed(context, 'scanpage');
-            if (index == 0) Navigator.pushNamed(context, 'mappage');
-          },
-          currentIndex: paginaActual,
-          items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.map), label: 'map'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.qr_code), label: 'qr_scaner'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.text_format), label: 'blogs'),
-          ]),
-    );
+      ),*/
   }
-}
-*/
-}

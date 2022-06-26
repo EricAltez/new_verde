@@ -18,12 +18,18 @@ class SignUpPage extends StatelessWidget {
         height: double.infinity,
         width: double.infinity,
         child: SafeArea(
-          child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+                vertical: 15,
+                horizontal: 5,
+              ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset('images/Logo_Verde.jpg'),
-                const SizedBox(height: 40),
+                Expanded(
+                  child:
+                    Image.asset('images/Logo_Verde2.jpg')
+                ),
                 TextFormField(
                     controller: emailController,
                     cursorColor: Colors.black,
