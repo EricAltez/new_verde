@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:new_verde/pages/index.dart';
-
 import 'package:new_verde/widgets/utils.dart';
 
 class LoginPage extends StatelessWidget {
@@ -63,12 +61,11 @@ class LoginPage extends StatelessWidget {
                 Row(
                   children: [
                     const Text(
-                      'No tienes cuenta?',
+                      'Aun no tiene una cuenta?',
                       style: TextStyle(color: Colors.black, fontSize: 20),
                     ),
                     MaterialButton(
-                      onPressed: () =>
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpPage()),),
+                      onPressed: () => Navigator.pushNamed(context, 'signup'),
                       child: Text(
                         'Registrate',
                         style: TextStyle(
