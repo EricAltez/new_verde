@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -36,7 +38,7 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   children: [
                   Image.network(
-                'https://farm3.staticflickr.com/2897/14464606763_5473161990.jpg',
+                'https://media-private.canva.com/h0RjI/MAFEzYh0RjI/1/s.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJWF6QO3UH4PAAJ6Q%2F20220626%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220626T214625Z&X-Amz-Expires=74394&X-Amz-Signature=e7bbb89b7d1438fd153f68678804f2fe645fc20e26869b8cc54e3d1b708055cf&X-Amz-SignedHeaders=host&response-expires=Mon%2C%2027%20Jun%202022%2018%3A26%3A19%20GMT',
                 alignment: Alignment.topCenter,
                 height: 300,
               ),
