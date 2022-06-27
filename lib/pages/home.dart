@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
       builder:
           (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
         if (snapshot.hasError) {
-          return const Text("Slgo salió mal");
+          return const Text("Algo salió mal");
         }
         if (snapshot.hasData && !snapshot.data!.exists) {
           return const Text("El documento no existe");
@@ -31,30 +31,36 @@ class _HomePageState extends State<HomePage> {
           Map<String, dynamic> data =
               snapshot.data!.data() as Map<String, dynamic>;
           return Scaffold(
-            body: Column(
-              children: [
-                
-              ],
-            ),
+            body: Center(
+              child: SafeArea(
+                child: Column(
+                  children: [
+                  Image.network(
+                'https://farm3.staticflickr.com/2897/14464606763_5473161990.jpg',
+                alignment: Alignment.topCenter,
+                height: 300,
+              ),
+              ]
+              ))),
             bottomNavigationBar: BottomNavigationBar(
-          onTap: (index) {
-            if (index == 2) {
-              launchUrlString("https://3956holberton.blogspot.com/");
-            }
-            if (index == 1) Navigator.pushNamed(context, 'scanpage');
-            if (index == 0) Navigator.pushNamed(context, 'mappage');
-          },
-          currentIndex: paginaActual,
-          items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.map), label: 'map'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.qr_code), label: 'qr_scaner'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.text_format), label: 'blogs'),
-          ]),
+                onTap: (index) {
+                  if (index == 2) {
+                    launchUrlString("https://3956holberton.blogspot.com/");
+                  }
+                  if (index == 1) Navigator.pushNamed(context, 'scanpage');
+                  if (index == 0) Navigator.pushNamed(context, 'mappage');
+                },
+                currentIndex: paginaActual,
+                items: const [
+                  BottomNavigationBarItem(icon: Icon(Icons.map), label: 'Mapa'),
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.qr_code), label: 'Scanner QR'),
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.text_format), label: 'Blog'),
+                ]),
           );
         }
-        return const Text("Cargando");
+        return const Center(child: CircularProgressIndicator(),);
       },
     ));
   }
@@ -151,4 +157,4 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),*/
-  }
+}
