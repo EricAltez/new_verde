@@ -22,18 +22,20 @@ class _HomePageState extends State<HomePage> {
       builder:
           (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
         if (snapshot.hasError) {
-          return const Text("Something went wrong");
+          return const Text("Slgo salió mal");
         }
-
         if (snapshot.hasData && !snapshot.data!.exists) {
-          return const Text("Document does not exist");
+          return const Text("El documento no existe");
         }
-
         if (snapshot.connectionState == ConnectionState.done) {
           Map<String, dynamic> data =
               snapshot.data!.data() as Map<String, dynamic>;
           return Scaffold(
-            body: Column(),
+            body: Column(
+              children: [
+                
+              ],
+            ),
             bottomNavigationBar: BottomNavigationBar(
           onTap: (index) {
             if (index == 2) {
@@ -50,12 +52,9 @@ class _HomePageState extends State<HomePage> {
             BottomNavigationBarItem(
                 icon: Icon(Icons.text_format), label: 'blogs'),
           ]),
-
           );
-
         }
-
-        return const Text("loading");
+        return const Text("Cargando");
       },
     ));
   }
