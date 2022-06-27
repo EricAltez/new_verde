@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
       routes: {
         'home': (_) =>  const HomePage(),
         'login': (_) => const LoginPage(),
-        'mappage': (_) => const MapPage(),
+        'mappage': (_) => const MyApp(),
         'scancarton': (_) => const CartonScan(),
         'scanorganico': (_) => const ScanOrganico(),
         'scanpage': (_) => const ScanPage(),
