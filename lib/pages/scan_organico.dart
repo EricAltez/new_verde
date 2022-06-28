@@ -78,21 +78,29 @@ class _ScannerState extends State<ScanOrganico> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
         home: Scaffold(
-            appBar: AppBar(title: const Text('QR scan')),
-            body: Builder(builder: (BuildContext context) {
-              return Container(
-                  alignment: Alignment.center,
-                  child: Flex(
-                      direction: Axis.vertical,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        ElevatedButton(
-                            onPressed: () => scanQR(),
-                            child: const Text('Start QR scan')),
-                        Text('Resultado: $_scanBarcode\n',
-                            style: const TextStyle(fontSize: 20))
-                      ]));
-            })));
+        appBar: AppBar(
+          title: const Text('QR scan')
+        ),
+        body: Builder(
+          builder: (BuildContext context) {
+            return Container(
+              alignment: Alignment.center,
+              child: Flex(
+                direction: Axis.vertical,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  ElevatedButton(
+                      onPressed: () => scanQR(),
+                      child: const Text('Start QR scan')),
+                  Text('Resultado: $_scanBarcode\n',
+                      style: const TextStyle(fontSize: 20))
+                ],
+              ),
+            );
+          },
+        ),
+      ),
+    );
   }
 }
 
