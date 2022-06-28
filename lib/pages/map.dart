@@ -5,19 +5,9 @@ class MapPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          const Center(
-            child: Text('MapPage'),
-          ),
-          TextButton(
-          child: const Text('Volver'),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        ],
-      ),
-    );
+        body: Container(
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage('images/mapa.png'), fit: BoxFit.cover))));
   }
 }

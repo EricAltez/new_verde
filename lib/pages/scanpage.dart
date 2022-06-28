@@ -14,7 +14,7 @@ class ScanPage extends StatelessWidget {
                 splashColor: Colors.black26,
                 onTap: () {},
                 child: Ink.image(
-                  image: const AssetImage('images/manzana.jpg'),
+                  image: const AssetImage('images/botella (1).jpg'),
                       height: 200,
                       width: 200,
                       fit: BoxFit.cover,
@@ -29,7 +29,7 @@ class ScanPage extends StatelessWidget {
                 splashColor: Colors.black26,
                 onTap: () {},
                 child: Ink.image(
-                  image: const AssetImage('images/manzana.jpg'),
+                  image: const AssetImage('images/carton.jpg'),
                       height: 200,
                       width: 200,
                       fit: BoxFit.cover,
