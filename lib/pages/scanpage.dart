@@ -3,31 +3,102 @@ import 'package:flutter/material.dart';
 class ScanPage extends StatelessWidget {
   const ScanPage({Key? key}) : super(key: key);
 
+  /*@override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+          child: Column(
+            children: [
+              InkWell(
+                borderRadius: BorderRadius.circular(28),
+                splashColor: Colors.black26,
+                onTap: () {},
+                child: Ink.image(
+                  image: const AssetImage('images/manzana.jpg'),
+                      height: 200,
+                      width: 200,
+                      fit: BoxFit.cover,
+                      child: const Text(
+                        'Orgánicos',
+                        style: TextStyle(fontSize: 32, color: Colors.white),
+                      ),
+                    ),
+              ),
+              InkWell(
+                borderRadius: BorderRadius.circular(28),
+                splashColor: Colors.black26,
+                onTap: () {},
+                child: Ink.image(
+                  image: const AssetImage('images/manzana.jpg'),
+                      height: 200,
+                      width: 200,
+                      fit: BoxFit.cover,
+                      child: const Text(
+                        'Orgánicos',
+                        style: TextStyle(fontSize: 32, color: Colors.white),
+                      ),
+                    ),
+              ),
+              InkWell(
+                borderRadius: BorderRadius.circular(28),
+                splashColor: Colors.black26,
+                onTap: () {},
+                child: Ink.image(
+                  image: const AssetImage('images/manzana.jpg'),
+                      height: 200,
+                      width: 200,
+                      fit: BoxFit.cover,
+                      child: const Text(
+                        'Orgánicos',
+                        style: TextStyle(fontSize: 32, color: Colors.white),
+                      ),
+                    ),
+              ),
+            ],
+          )
+          ),
+    );
+  }
+}*/
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Row(
+      body: ListView(
         children: [
           const Center(
-            child: Text('scan'),
+            child: Text('Que vas a reciclar?'),
           ),
-          TextButton(
-            child: const Text('Pop!'),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-          ElevatedButton(
+          const SizedBox(height: 20,),
+          MaterialButton(
+            minWidth: 200,
+            height: 200,
+            color: Colors.lightGreen,
             onPressed: () => Navigator.pushNamed(context, 'scanorganico'),
-            child: null,
+            child: const Text('Escanear Organicos',style: TextStyle(color: Colors.white))
           ),
-          ElevatedButton(
+          const SizedBox(height: 20,),
+          MaterialButton(
+            minWidth: 200,
+            height: 200,
+            color: Colors.lightGreen,
             onPressed: () => Navigator.pushNamed(context, 'scanplastico'),
-            child: null,
+            child: const Text('Escanear plásticos',style: TextStyle(color: Colors.white))
           ),
-          ElevatedButton(
+          const SizedBox(height: 20,),
+          MaterialButton(
+            minWidth: 200,
+            height: 200,
+            color: Colors.lightGreen,
             onPressed: () => Navigator.pushNamed(context, 'scancarton'),
-            child: null,
+            child: const Text('Escanear cartón',style: TextStyle(color: Colors.white))
+          ),
+          const SizedBox(height: 20,),
+          ElevatedButton(
+            child: const Text('Volver al inicio'),
+            onPressed: () {
+            Navigator.pop(context);
+            },
           ),
         ],
       ),
