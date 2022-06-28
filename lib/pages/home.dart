@@ -26,9 +26,6 @@ class _HomePageState extends State<HomePage> {
       'https://media-private.canva.com/Df1Gs/MAFE3cDf1Gs/1/s.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJWF6QO3UH4PAAJ6Q%2F20220628%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220628T000235Z&X-Amz-Expires=33808&X-Amz-Signature=ed7668a7e53b472614d8a12ee05d87b0d2209f7e3dd8add1b8852e2ba3a3e67b&X-Amz-SignedHeaders=host&response-expires=Tue%2C%2028%20Jun%202022%2009%3A26%3A03%20GMT';
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(
-          title: const Text('Home'),
-        ),
         body: FutureBuilder<UserM?>(
           future: readUser(),
           builder: (context, snapshot) {
@@ -36,7 +33,6 @@ class _HomePageState extends State<HomePage> {
               return const Text('Algo salió mal');
             } else if (snapshot.hasData) {
               final user = snapshot.data;
-
               return user == null
                   ? const Center(child: Text('No hay usuario'))
                   : Scaffold(

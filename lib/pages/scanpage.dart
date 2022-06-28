@@ -3,65 +3,78 @@ import 'package:flutter/material.dart';
 class ScanPage extends StatelessWidget {
   const ScanPage({Key? key}) : super(key: key);
 
-  /*@override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+        body: Center(
+      child: Expanded(
           child: Column(
-            children: [
-              InkWell(
-                borderRadius: BorderRadius.circular(28),
-                splashColor: Colors.black26,
-                onTap: () {},
-                child: Ink.image(
-                  image: const AssetImage('images/botella (1).jpg'),
-                      height: 200,
-                      width: 200,
-                      fit: BoxFit.cover,
-                      child: const Text(
-                        'Orgánicos',
-                        style: TextStyle(fontSize: 32, color: Colors.white),
-                      ),
-                    ),
+        children: [
+          InkWell(
+            borderRadius: BorderRadius.circular(28),
+            splashColor: Colors.black26,
+            onTap: () {
+              Navigator.pushNamed(context, 'scanplastico');
+            },
+            child: Ink.image(
+              image: const AssetImage('images/botella (1).jpg'),
+              height: 150,
+              width: 200,
+              fit: BoxFit.cover,
+              child: const Text(
+                'Plástico',
+                style: TextStyle(fontSize: 32, color: Colors.white),
               ),
-              InkWell(
-                borderRadius: BorderRadius.circular(28),
-                splashColor: Colors.black26,
-                onTap: () {},
-                child: Ink.image(
-                  image: const AssetImage('images/carton.jpg'),
-                      height: 200,
-                      width: 200,
-                      fit: BoxFit.cover,
-                      child: const Text(
-                        'Orgánicos',
-                        style: TextStyle(fontSize: 32, color: Colors.white),
-                      ),
-                    ),
-              ),
-              InkWell(
-                borderRadius: BorderRadius.circular(28),
-                splashColor: Colors.black26,
-                onTap: () {},
-                child: Ink.image(
-                  image: const AssetImage('images/manzana.jpg'),
-                      height: 200,
-                      width: 200,
-                      fit: BoxFit.cover,
-                      child: const Text(
-                        'Orgánicos',
-                        style: TextStyle(fontSize: 32, color: Colors.white),
-                      ),
-                    ),
-              ),
-            ],
-          )
+            ),
           ),
+          SizedBox(
+            height: 20,
+          ),
+          InkWell(
+            borderRadius: BorderRadius.circular(28),
+            splashColor: Colors.black26,
+            onTap: () {
+              Navigator.pushNamed(context, 'scancarton');
+            },
+            child: Ink.image(
+              image: const AssetImage('images/carton.jpg'),
+              height: 150,
+              width: 200,
+              fit: BoxFit.cover,
+              child: const Text(
+                'Cartón',
+                style: TextStyle(fontSize: 32, color: Colors.white),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          InkWell(
+            borderRadius: BorderRadius.circular(28),
+            splashColor: Colors.black26,
+            onTap: () {
+              Navigator.pushNamed(context, 'scanorganico');
+            },
+            child: Ink.image(
+              image: const AssetImage('images/manzana.jpg'),
+              height: 150,
+              width: 200,
+              fit: BoxFit.cover,
+              child: const Text(
+                'Orgánicos',
+                style: TextStyle(fontSize: 32, color: Colors.white),
+              ),
+            ),
+          ),
+        ],
+      )),
+    )
     );
   }
-}*/
+}
 
-  @override
+  /*@override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
@@ -112,4 +125,4 @@ class ScanPage extends StatelessWidget {
       ),
     );
   }
-}
+}*/
