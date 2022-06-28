@@ -12,7 +12,7 @@ class ScanOrganico extends StatelessWidget {
             child: Text('scan o'),
           ),
           TextButton(
-            child: const Text('Pop!'),
+            child: const Text('Volver'),
             onPressed: () {
               Navigator.pop(context);
             },

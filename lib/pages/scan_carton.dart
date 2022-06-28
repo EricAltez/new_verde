@@ -12,7 +12,7 @@ class CartonScan extends StatelessWidget {
             child: Text('sacan c'),
           ),
           TextButton(
-          child: const Text('Pop!'),
+          child: const Text('Volver'),
           onPressed: () {
             Navigator.pop(context);
           },

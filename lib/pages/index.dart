@@ -1,3 +1,4 @@
+export 'package:new_verde/models/user.dart';
 export 'package:new_verde/pages/home.dart';
 export 'package:new_verde/pages/login_page.dart';
 export 'package:new_verde/pages/scan_carton.dart';

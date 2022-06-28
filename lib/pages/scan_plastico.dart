@@ -12,7 +12,7 @@ class ScanPlastico extends StatelessWidget {
             child: Text('scan p'),
           ),
           TextButton(
-            child: const Text('Pop!'),
+            child: const Text('Volver'),
             onPressed: () {
               Navigator.pop(context);
             },

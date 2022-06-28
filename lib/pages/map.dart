@@ -11,7 +11,7 @@ class MapPage extends StatelessWidget {
             child: Text('MapPage'),
           ),
           TextButton(
-          child: const Text('Pop!'),
+          child: const Text('Volver'),
           onPressed: () {
             Navigator.pop(context);
           },
