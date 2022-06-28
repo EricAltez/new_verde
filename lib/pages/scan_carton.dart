@@ -12,13 +12,14 @@ class CartonScan extends StatefulWidget {
 }
 
 class _ScannerState extends State<CartonScan> {
-   String _scanBarcode = 'Unknown';
+  String _scanBarcode = 'Unknown';
 
   @override
   void initState() {
     super.initState();
   }
 
+  //Consultar este bloque con Eric.
   Future<void> startBarcodeScanStream() async {
     FlutterBarcodeScanner.getBarcodeStreamReceiver(
             '#ff6666', 'Cancel', true, ScanMode.BARCODE)!
@@ -31,7 +32,9 @@ class _ScannerState extends State<CartonScan> {
     try {
       barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
           '#ff6666', 'Cancel', true, ScanMode.QR);
-      print(barcodeScanRes);
+      if (barcodeScanRes == 'scancarton') {
+        print('Bien hecho!! Reciclaste cartón.');
+      }
     } on PlatformException {
       barcodeScanRes = 'Failed to get platform version.';
     }
@@ -53,7 +56,9 @@ class _ScannerState extends State<CartonScan> {
     try {
       barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
           '#ff6666', 'Cancel', true, ScanMode.BARCODE);
-      print(barcodeScanRes);
+      if (barcodeScanRes == 'scancarton') {
+        print('Bien hecho!! Reciclaste cartón.');
+      }
     } on PlatformException {
       barcodeScanRes = 'Failed to get platform version.';
     }
@@ -83,16 +88,12 @@ class _ScannerState extends State<CartonScan> {
                         ElevatedButton(
                             onPressed: () => scanQR(),
                             child: const Text('Start QR scan')),
-                        Text('Scan result : $_scanBarcode\n',
+                        Text('Resultado: $_scanBarcode\n',
                             style: const TextStyle(fontSize: 20))
                       ]));
             })));
   }
 }
-
-
-
-
 
 /*import 'package:flutter/material.dart';
 
