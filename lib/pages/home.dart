@@ -82,61 +82,226 @@ class _HomePageState extends State<HomePage> {
   void buildImage(user) {
     if (user.points < 50) {
       a;
-    } else if (user.points < 100){
+    } else if (user.points < 100) {
       b;
-    }
-    else if (user.points < 150){
+    } else if (user.points < 150) {
       c;
-    }
-    else {
+    } else {
       d;
     }
   }
 
   Widget buildUser(UserM user) => Padding(
-    
       padding: const EdgeInsets.all(15),
-      
       child: ListView(children: [
-        
         Container(
-          height: 50,
-          color: Colors.lightGreen,
-          child: Center(child: Text('Bienvenido: ${user.name}')),
+          margin: EdgeInsets.all(30),
+          height: 60,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            gradient: new LinearGradient(
+              colors: [
+                Color.fromARGB(255, 51, 255, 44),
+                Color.fromARGB(255, 131, 236, 127),
+              ],
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+              stops: [0.25, 0.90],
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Color(0xFF101012),
+                offset: Offset(-12, 12),
+                blurRadius: 8,
+              ),
+            ],
+          ),
+          alignment: Alignment.centerLeft, //to align its child
+          padding: EdgeInsets.all(20),
+          child: Text(
+            'Bienvenido: ${user.name}',
+            style: TextStyle(
+              fontSize: 15,
+              color: Colors.white,
+              fontWeight: FontWeight.w200,
+              fontStyle: FontStyle.italic,
+            ),
+          ),
         ),
         Container(
-          height: 50,
-          color: Colors.green,
-          child: Center(
-              child: Text(
-                  'Reciclaje total: ${user.plastico + user.carton + user.organico}')),
+         margin: EdgeInsets.all(30),
+          height: 60,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            gradient: new LinearGradient(
+              colors: [
+                Color.fromARGB(255, 51, 255, 44),
+                Color.fromARGB(255, 131, 236, 127),
+              ],
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+              stops: [0.25, 0.90],
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Color(0xFF101012),
+                offset: Offset(-12, 12),
+                blurRadius: 8,
+              ),
+            ],
+          ),
+          alignment: Alignment.centerLeft, //to align its child
+          padding: EdgeInsets.all(20),
+          child: Text(
+            'Reciclaje total: ${user.plastico + user.carton + user.organico}',
+            style: TextStyle(
+              fontSize: 15,
+              color: Colors.white,
+              fontWeight: FontWeight.w200,
+              fontStyle: FontStyle.italic,
+            ),
+          ),
         ),
         Container(
-          height: 50,
-          color: Colors.lightGreen,
-          child: Center(child: Text('Puntaje total: ${user.points}')),
+          margin: EdgeInsets.all(30),
+          height: 60,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            gradient: new LinearGradient(
+              colors: [
+                Color.fromARGB(255, 51, 255, 44),
+                Color.fromARGB(255, 131, 236, 127),
+              ],
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+              stops: [0.25, 0.90],
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Color(0xFF101012),
+                offset: Offset(-12, 12),
+                blurRadius: 8,
+              ),
+            ],
+          ),
+          alignment: Alignment.centerLeft, //to align its child
+          padding: EdgeInsets.all(20),
+          child: Text(
+            'Puntaje total: ${user.points}',
+            style: TextStyle(
+              fontSize: 15,
+              color: Colors.white,
+              fontWeight: FontWeight.w200,
+              fontStyle: FontStyle.italic,
+            ),
+          ),
         ),
         Container(
-          height: 50,
-          color: Colors.green,
-          child: Center(child: Text('Carton reciclado: ${user.carton}')),
+          margin: EdgeInsets.all(30),
+          height: 60,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            gradient: new LinearGradient(
+              colors: [
+                Color.fromARGB(255, 51, 255, 44),
+                Color.fromARGB(255, 131, 236, 127),
+              ],
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+              stops: [0.25, 0.90],
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Color(0xFF101012),
+                offset: Offset(-12, 12),
+                blurRadius: 8,
+              ),
+            ],
+          ),
+          alignment: Alignment.centerLeft, //to align its child
+          padding: EdgeInsets.all(20),
+          child: Text(
+            'Carton reciclado: ${user.carton}',
+            style: TextStyle(
+              fontSize: 15,
+              color: Colors.white,
+              fontWeight: FontWeight.w200,
+              fontStyle: FontStyle.italic,
+            ),
+          ),
         ),
         Container(
-          height: 50,
-          color: Colors.lightGreen,
-          child: Center(child: Text('Plastico reciclado: ${user.plastico}')),
+         margin: EdgeInsets.all(30),
+          height: 60,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            gradient: new LinearGradient(
+              colors: [
+                Color.fromARGB(255, 51, 255, 44),
+                Color.fromARGB(255, 131, 236, 127),
+              ],
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+              stops: [0.25, 0.90],
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Color(0xFF101012),
+                offset: Offset(-12, 12),
+                blurRadius: 8,
+              ),
+            ],
+          ),
+          alignment: Alignment.centerLeft, //to align its child
+          padding: EdgeInsets.all(20),
+          child: Text(
+            'Plastico reciclado: ${user.plastico}',
+            style: TextStyle(
+              fontSize: 15,
+              color: Colors.white,
+              fontWeight: FontWeight.w200,
+              fontStyle: FontStyle.italic,
+            ),
+          ),
         ),
         Container(
-          height: 50,
-          color: Colors.green,
-          child: Center(
-              child: Text('Material orgánico reciclado: ${user.organico}')),
+          margin: EdgeInsets.all(30),
+          height: 60,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            gradient: new LinearGradient(
+              colors: [
+                Color.fromARGB(255, 51, 255, 44),
+                Color.fromARGB(255, 131, 236, 127),
+              ],
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+              stops: [0.25, 0.90],
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Color(0xFF101012),
+                offset: Offset(-12, 12),
+                blurRadius: 8,
+              ),
+            ],
+          ),
+          alignment: Alignment.centerLeft, //to align its child
+          padding: EdgeInsets.all(20),
+          child: Text(
+            'Material orgánico reciclado: ${user.organico}',
+            style: TextStyle(
+              fontSize: 15,
+              color: Colors.white,
+              fontWeight: FontWeight.w200,
+              fontStyle: FontStyle.italic,
+            ),
+          ),
         ),
         //CircleAvatar(child: Text('${user.points}')),
         //Text(user.name),
         //Text((user.carton).toString()),
       ]));
-
   Stream<List<UserM>> readUsers() => FirebaseFirestore.instance
       .collection('users')
       .snapshots()

@@ -11,9 +11,13 @@ class LoginPage extends StatelessWidget {
     final passwordController = TextEditingController();
 
     return Scaffold(
-      body: SizedBox(
-        height: double.infinity,
-        width: double.infinity,
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('images/fondo_login_app_verde.png'),
+            fit: BoxFit.cover)),
+        //height: double.infinity,
+        //width: double.infinity,
         child: SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(
@@ -25,7 +29,7 @@ class LoginPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Expanded(
-                      child: Image.asset('images/Logo_Verde2.jpg')
+                      child: Image.asset('')
                     ),
                     TextField(
                       controller: emailController,
