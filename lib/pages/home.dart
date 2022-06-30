@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
   final CollectionReference users =
       FirebaseFirestore.instance.collection('users');
   final a =
-      'https://media-private.canva.com/h0RjI/MAFEzYh0RjI/1/s.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJWF6QO3UH4PAAJ6Q%2F20220626%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220626T214625Z&X-Amz-Expires=74394&X-Amz-Signature=e7bbb89b7d1438fd153f68678804f2fe645fc20e26869b8cc54e3d1b708055cf&X-Amz-SignedHeaders=host&response-expires=Mon%2C%2027%20Jun%202022%2018%3A26%3A19%20GMT';
+      'https://media-private.canva.com/X-X_c/MAFFF0X-X_c/1/s.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJWF6QO3UH4PAAJ6Q%2F20220630%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220630T052851Z&X-Amz-Expires=51051&X-Amz-Signature=0c707b138062e19e4fbc42aaafd5ba928518c2166500b8a49618bebee6472d5a&X-Amz-SignedHeaders=host&response-expires=Thu%2C%2030%20Jun%202022%2019%3A39%3A42%20GMT';
   final b =
       'https://media-private.canva.com/Nwpac/MAFE3fNwpac/1/s.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJWF6QO3UH4PAAJ6Q%2F20220628%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220628T031807Z&X-Amz-Expires=21967&X-Amz-Signature=1c5ae478b4af121de6c101b63e1c9c3a2a7ad6b5c27224804ab7d0c5774c387b&X-Amz-SignedHeaders=host&response-expires=Tue%2C%2028%20Jun%202022%2009%3A24%3A14%20GMT';
   final c =
@@ -26,6 +26,7 @@ class _HomePageState extends State<HomePage> {
       'https://media-private.canva.com/Df1Gs/MAFE3cDf1Gs/1/s.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJWF6QO3UH4PAAJ6Q%2F20220628%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220628T000235Z&X-Amz-Expires=33808&X-Amz-Signature=ed7668a7e53b472614d8a12ee05d87b0d2209f7e3dd8add1b8852e2ba3a3e67b&X-Amz-SignedHeaders=host&response-expires=Tue%2C%2028%20Jun%202022%2009%3A26%3A03%20GMT';
   @override
   Widget build(BuildContext context) => Scaffold(
+    backgroundColor: Colors.white,
         body: FutureBuilder<UserM?>(
           future: readUser(),
           builder: (context, snapshot) {
