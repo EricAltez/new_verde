@@ -6,70 +6,74 @@ class ScanPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
-      child: Expanded(
+      appBar: AppBar(
+        title: Text('Ir a la pagina'),
+      ),
+      body: Center(
+        child: Expanded(
           child: Column(
-        children: [
-          InkWell(
-            borderRadius: BorderRadius.circular(28),
-            splashColor: Colors.black26,
-            onTap: () {
-              Navigator.pushNamed(context, 'scanplastico');
-            },
-            child: Ink.image(
-              image: const AssetImage('images/botella (1).jpg'),
-              height: 150,
-              width: 200,
-              fit: BoxFit.cover,
-              child: const Text(
-                'Plástico',
-                style: TextStyle(fontSize: 32, color: Colors.white),
+            children: [
+              InkWell(
+                borderRadius: BorderRadius.circular(28),
+                splashColor: Colors.black26,
+                onTap: () {
+                  Navigator.pushNamed(context, 'scanplastico');
+                },
+                child: Ink.image(
+                  image: const AssetImage('images/botella (1).jpg'),
+                  height: 150,
+                  width: 200,
+                  fit: BoxFit.cover,
+                  child: const Text(
+                    'Plástico',
+                    style: TextStyle(fontSize: 32, color: Colors.white),
+                  ),
+                ),
               ),
-            ),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          InkWell(
-            borderRadius: BorderRadius.circular(28),
-            splashColor: Colors.black26,
-            onTap: () {
-              Navigator.pushNamed(context, 'scancarton');
-            },
-            child: Ink.image(
-              image: const AssetImage('images/carton.jpg'),
-              height: 150,
-              width: 200,
-              fit: BoxFit.cover,
-              child: const Text(
-                'Cartón',
-                style: TextStyle(fontSize: 32, color: Colors.white),
+              const SizedBox(
+                height: 20,
               ),
-            ),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          InkWell(
-            borderRadius: BorderRadius.circular(28),
-            splashColor: Colors.black26,
-            onTap: () {
-              Navigator.pushNamed(context, 'scanorganico');
-            },
-            child: Ink.image(
-              image: const AssetImage('images/manzana.jpg'),
-              height: 150,
-              width: 200,
-              fit: BoxFit.cover,
-              child: const Text(
-                'Orgánicos',
-                style: TextStyle(fontSize: 32, color: Colors.white),
+              InkWell(
+                borderRadius: BorderRadius.circular(28),
+                splashColor: Colors.black26,
+                onTap: () {
+                  Navigator.pushNamed(context, 'scancarton');
+                },
+                child: Ink.image(
+                  image: const AssetImage('images/carton.jpg'),
+                  height: 150,
+                  width: 200,
+                  fit: BoxFit.cover,
+                  child: const Text(
+                    'Cartón',
+                    style: TextStyle(fontSize: 32, color: Colors.white),
+                  ),
+                ),
               ),
-            ),
+              const SizedBox(
+                height: 20,
+              ),
+              InkWell(
+                borderRadius: BorderRadius.circular(28),
+                splashColor: Colors.black26,
+                onTap: () {
+                  Navigator.pushNamed(context, 'scanorganico');
+                },
+                child: Ink.image(
+                  image: const AssetImage('images/manzana.jpg'),
+                  height: 150,
+                  width: 200,
+                  fit: BoxFit.cover,
+                  child: const Text(
+                    'Orgánicos',
+                    style: TextStyle(fontSize: 32, color: Colors.white),
+                  ),
+                ),
+              ),
+            ],
           ),
-        ],
-      )),
-    )
+        ),
+      ),
     );
   }
 }

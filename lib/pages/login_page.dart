@@ -12,7 +12,7 @@ class LoginPage extends StatelessWidget {
 
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('images/fondo_login_app_verde.png'),
             fit: BoxFit.cover)),

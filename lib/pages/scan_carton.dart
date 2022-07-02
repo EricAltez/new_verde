@@ -92,8 +92,14 @@ class _ScannerState extends State<CartonScan> {
                   ElevatedButton(
                       onPressed: () => scanQR(),
                       child: const Text('Start QR scan')),
-                  Text('Resultado: $_scanBarcode\n',
-                      style: const TextStyle(fontSize: 20))
+                  Text((() {
+                    if (_scanBarcode == "Unknown") {
+                      return "";
+                    } else if (_scanBarcode == 'verde carton') {
+                      return "Bien hecho!! Reciclaste cartón.";
+                    }
+                    return "Recipiente incorrecto";
+                  })())
                 ],
               ),
             );

@@ -5,8 +5,11 @@ class MapPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Ir a la pagina anterior'),
+      ),
         body: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage('images/mapa.png'), fit: BoxFit.cover))));
   }

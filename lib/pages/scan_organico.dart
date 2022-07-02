@@ -92,8 +92,14 @@ class _ScannerState extends State<ScanOrganico> {
                   ElevatedButton(
                       onPressed: () => scanQR(),
                       child: const Text('Start QR scan')),
-                  Text('Resultado: $_scanBarcode\n',
-                      style: const TextStyle(fontSize: 20))
+                  Text((() {
+                    if (_scanBarcode == "Unknown") {
+                      return "";
+                    } else if (_scanBarcode == 'verde organico') {
+                      return "Bien hecho!! Reciclaste material orgánico.";
+                    }
+                    return "Recipente incorrecto";
+                  })())
                 ],
               ),
             );

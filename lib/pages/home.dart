@@ -26,6 +26,9 @@ class _HomePageState extends State<HomePage> {
       'https://media-private.canva.com/Df1Gs/MAFE3cDf1Gs/1/s.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJWF6QO3UH4PAAJ6Q%2F20220628%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220628T000235Z&X-Amz-Expires=33808&X-Amz-Signature=ed7668a7e53b472614d8a12ee05d87b0d2209f7e3dd8add1b8852e2ba3a3e67b&X-Amz-SignedHeaders=host&response-expires=Tue%2C%2028%20Jun%202022%2009%3A26%3A03%20GMT';
   @override
   Widget build(BuildContext context) => Scaffold(
+    appBar: AppBar(
+      title: Text('Home'),
+    ),
     backgroundColor: Colors.white,
         body: FutureBuilder<UserM?>(
           future: readUser(),
@@ -92,15 +95,16 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  Widget buildUser(UserM user) => Padding(
+  Widget buildUser(UserM user) => Scaffold(
+    body: Padding(
       padding: const EdgeInsets.all(15),
       child: ListView(children: [
         Container(
-          margin: EdgeInsets.all(30),
+          margin: const EdgeInsets.all(30),
           height: 60,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            gradient: new LinearGradient(
+            gradient: const LinearGradient(
               colors: [
                 Color.fromARGB(255, 51, 255, 44),
                 Color.fromARGB(255, 131, 236, 127),
@@ -109,7 +113,7 @@ class _HomePageState extends State<HomePage> {
               end: Alignment.centerRight,
               stops: [0.25, 0.90],
             ),
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                 color: Color(0xFF101012),
                 offset: Offset(-12, 12),
@@ -118,10 +122,10 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
           alignment: Alignment.centerLeft, //to align its child
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: Text(
             'Bienvenido: ${user.name}',
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 15,
               color: Colors.white,
               fontWeight: FontWeight.w200,
@@ -130,11 +134,11 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         Container(
-         margin: EdgeInsets.all(30),
+         margin: const EdgeInsets.all(30),
           height: 60,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            gradient: new LinearGradient(
+            gradient: const LinearGradient(
               colors: [
                 Color.fromARGB(255, 51, 255, 44),
                 Color.fromARGB(255, 131, 236, 127),
@@ -143,7 +147,7 @@ class _HomePageState extends State<HomePage> {
               end: Alignment.centerRight,
               stops: [0.25, 0.90],
             ),
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                 color: Color(0xFF101012),
                 offset: Offset(-12, 12),
@@ -152,10 +156,10 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
           alignment: Alignment.centerLeft, //to align its child
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: Text(
             'Reciclaje total: ${user.plastico + user.carton + user.organico}',
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 15,
               color: Colors.white,
               fontWeight: FontWeight.w200,
@@ -164,11 +168,11 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         Container(
-          margin: EdgeInsets.all(30),
+          margin: const EdgeInsets.all(30),
           height: 60,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            gradient: new LinearGradient(
+            gradient: const LinearGradient(
               colors: [
                 Color.fromARGB(255, 51, 255, 44),
                 Color.fromARGB(255, 131, 236, 127),
@@ -177,7 +181,7 @@ class _HomePageState extends State<HomePage> {
               end: Alignment.centerRight,
               stops: [0.25, 0.90],
             ),
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                 color: Color(0xFF101012),
                 offset: Offset(-12, 12),
@@ -186,10 +190,10 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
           alignment: Alignment.centerLeft, //to align its child
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: Text(
             'Puntaje total: ${user.points}',
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 15,
               color: Colors.white,
               fontWeight: FontWeight.w200,
@@ -198,11 +202,11 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         Container(
-          margin: EdgeInsets.all(30),
+          margin: const EdgeInsets.all(30),
           height: 60,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            gradient: new LinearGradient(
+            gradient: const LinearGradient(
               colors: [
                 Color.fromARGB(255, 51, 255, 44),
                 Color.fromARGB(255, 131, 236, 127),
@@ -211,7 +215,7 @@ class _HomePageState extends State<HomePage> {
               end: Alignment.centerRight,
               stops: [0.25, 0.90],
             ),
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                 color: Color(0xFF101012),
                 offset: Offset(-12, 12),
@@ -220,10 +224,10 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
           alignment: Alignment.centerLeft, //to align its child
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: Text(
             'Carton reciclado: ${user.carton}',
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 15,
               color: Colors.white,
               fontWeight: FontWeight.w200,
@@ -232,11 +236,11 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         Container(
-         margin: EdgeInsets.all(30),
+         margin: const EdgeInsets.all(30),
           height: 60,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            gradient: new LinearGradient(
+            gradient: const LinearGradient(
               colors: [
                 Color.fromARGB(255, 51, 255, 44),
                 Color.fromARGB(255, 131, 236, 127),
@@ -245,7 +249,7 @@ class _HomePageState extends State<HomePage> {
               end: Alignment.centerRight,
               stops: [0.25, 0.90],
             ),
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                 color: Color(0xFF101012),
                 offset: Offset(-12, 12),
@@ -254,10 +258,10 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
           alignment: Alignment.centerLeft, //to align its child
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: Text(
             'Plastico reciclado: ${user.plastico}',
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 15,
               color: Colors.white,
               fontWeight: FontWeight.w200,
@@ -266,11 +270,11 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         Container(
-          margin: EdgeInsets.all(30),
+          margin: const EdgeInsets.all(30),
           height: 60,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            gradient: new LinearGradient(
+            gradient: const LinearGradient(
               colors: [
                 Color.fromARGB(255, 51, 255, 44),
                 Color.fromARGB(255, 131, 236, 127),
@@ -279,7 +283,7 @@ class _HomePageState extends State<HomePage> {
               end: Alignment.centerRight,
               stops: [0.25, 0.90],
             ),
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                 color: Color(0xFF101012),
                 offset: Offset(-12, 12),
@@ -288,10 +292,10 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
           alignment: Alignment.centerLeft, //to align its child
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: Text(
             'Material orgánico reciclado: ${user.organico}',
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 15,
               color: Colors.white,
               fontWeight: FontWeight.w200,
@@ -302,7 +306,7 @@ class _HomePageState extends State<HomePage> {
         //CircleAvatar(child: Text('${user.points}')),
         //Text(user.name),
         //Text((user.carton).toString()),
-      ]));
+      ])));
   Stream<List<UserM>> readUsers() => FirebaseFirestore.instance
       .collection('users')
       .snapshots()
