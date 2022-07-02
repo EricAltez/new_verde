@@ -99,6 +99,7 @@ class _ScannerState extends State<ScanPlastico> {
                     } else if (_scanBarcode == 'verde plastico') {
 
                       docUser.update({'plastico': FieldValue.increment(1)});
+                      docUser.update({'points': FieldValue.increment(1)});
                       return "Bien hecho!! Reciclaste plastico.";
                     }
                     return "Recipiente incorrecto";

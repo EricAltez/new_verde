@@ -22,17 +22,17 @@ class _HomePageState extends State<HomePage> {
   final a =
       'https://media-private.canva.com/X-X_c/MAFFF0X-X_c/1/s.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJWF6QO3UH4PAAJ6Q%2F20220630%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220630T052851Z&X-Amz-Expires=51051&X-Amz-Signature=0c707b138062e19e4fbc42aaafd5ba928518c2166500b8a49618bebee6472d5a&X-Amz-SignedHeaders=host&response-expires=Thu%2C%2030%20Jun%202022%2019%3A39%3A42%20GMT';
   final b =
-      'https://media-private.canva.com/Nwpac/MAFE3fNwpac/1/s.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJWF6QO3UH4PAAJ6Q%2F20220628%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220628T031807Z&X-Amz-Expires=21967&X-Amz-Signature=1c5ae478b4af121de6c101b63e1c9c3a2a7ad6b5c27224804ab7d0c5774c387b&X-Amz-SignedHeaders=host&response-expires=Tue%2C%2028%20Jun%202022%2009%3A24%3A14%20GMT';
+      'https://www.worldatlas.com/r/w960-q80/upload/89/99/3b/shutterstock-1263201358.jpg';
   final c =
-      'https://media-private.canva.com/BEzfY/MAFE3WBEzfY/1/s.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJWF6QO3UH4PAAJ6Q%2F20220627%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220627T072451Z&X-Amz-Expires=93481&X-Amz-Signature=16b242a0a060c8ed553f7869fd1849fa87580f8d10f5b31809896014d591119c&X-Amz-SignedHeaders=host&response-expires=Tue%2C%2028%20Jun%202022%2009%3A22%3A52%20GMT';
+      'https://wallpaperaccess.com/full/6153786.jpg';
   final d =
-      'https://media-private.canva.com/Df1Gs/MAFE3cDf1Gs/1/s.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJWF6QO3UH4PAAJ6Q%2F20220628%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220628T000235Z&X-Amz-Expires=33808&X-Amz-Signature=ed7668a7e53b472614d8a12ee05d87b0d2209f7e3dd8add1b8852e2ba3a3e67b&X-Amz-SignedHeaders=host&response-expires=Tue%2C%2028%20Jun%202022%2009%3A26%3A03%20GMT';
+      'https://c.pxhere.com/photos/47/5a/chestnut_tree_sunset_meadows_land_hdr_high_dynamic_range_chestnut_nature-1199025.jpg!d';
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(
-      title: const Text('Home'),
-    ),
-    backgroundColor: Colors.white,
+        appBar: AppBar(
+          title: const Text('Home'),
+        ),
+        backgroundColor: Colors.white,
         body: FutureBuilder<UserM?>(
           future: readUser(),
           builder: (context, snapshot) {
@@ -46,22 +46,6 @@ class _HomePageState extends State<HomePage> {
                       body: Center(
                         child: SafeArea(
                           child: Column(children: [
-                            Image.network(
-                              (() {
-                              if (1<2) {
-                                var p = docUser.toString();
-                                  print(p);
-                                  return p;
-                                } else if (3<4) {
-                              
-                                return "Bien hecho!! Reciclaste plastico.";
-                                }
-                              return "Recipiente incorrecto";
-                              })(),
-                              
-                              alignment: Alignment.topCenter,
-                              height: 300,
-                            ),
                             Expanded(child: buildUser(user))
                           ]),
                         ),
@@ -97,219 +81,234 @@ class _HomePageState extends State<HomePage> {
       );
   //: buildUser(user);
 
-
   Widget buildUser(UserM user) => Scaffold(
-    body: Padding(
-      padding: const EdgeInsets.all(15),
-      child: ListView(children: [
-        Container(
-          margin: const EdgeInsets.all(30),
-          height: 60,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            gradient: const LinearGradient(
-              colors: [
-                Color.fromARGB(255, 51, 255, 44),
-                Color.fromARGB(255, 131, 236, 127),
-              ],
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-              stops: [0.25, 0.90],
+      body: Padding(
+          padding: const EdgeInsets.all(15),
+          child: ListView(children: [
+            Image.network(
+              (() {
+                if (user.points < 50) {
+                  return a;
+                } else if (user.points >= 50 && user.points < 100) {
+                  return b;
+                } else if (user.points >= 100 && user.points < 150) {
+                  return c;
+                } else if (user.points >= 150) {
+                  return d;
+                }
+                return "Error al cargar sus puntos";
+              })(),
+              alignment: Alignment.topCenter,
+              height: 300,
             ),
-            boxShadow: const [
-              BoxShadow(
-                color: Color(0xFF101012),
-                offset: Offset(-12, 12),
-                blurRadius: 8,
+            Container(
+              margin: const EdgeInsets.all(30),
+              height: 60,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                gradient: const LinearGradient(
+                  colors: [
+                    Color.fromARGB(255, 51, 255, 44),
+                    Color.fromARGB(255, 131, 236, 127),
+                  ],
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                  stops: [0.25, 0.90],
+                ),
+                boxShadow: const [
+                  BoxShadow(
+                    color: Color(0xFF101012),
+                    offset: Offset(-12, 12),
+                    blurRadius: 8,
+                  ),
+                ],
               ),
-            ],
-          ),
-          alignment: Alignment.centerLeft, //to align its child
-          padding: const EdgeInsets.all(20),
-          child: Text(
-            'Bienvenido: ${user.name}',
-            style: const TextStyle(
-              fontSize: 15,
-              color: Colors.white,
-              fontWeight: FontWeight.w200,
-              fontStyle: FontStyle.italic,
-            ),
-          ),
-        ),
-        Container(
-         margin: const EdgeInsets.all(30),
-          height: 60,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            gradient: const LinearGradient(
-              colors: [
-                Color.fromARGB(255, 51, 255, 44),
-                Color.fromARGB(255, 131, 236, 127),
-              ],
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-              stops: [0.25, 0.90],
-            ),
-            boxShadow: const [
-              BoxShadow(
-                color: Color(0xFF101012),
-                offset: Offset(-12, 12),
-                blurRadius: 8,
+              alignment: Alignment.centerLeft, //to align its child
+              padding: const EdgeInsets.all(20),
+              child: Text(
+                'Bienvenido: ${user.name}',
+                style: const TextStyle(
+                  fontSize: 15,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w200,
+                  fontStyle: FontStyle.italic,
+                ),
               ),
-            ],
-          ),
-          alignment: Alignment.centerLeft, //to align its child
-          padding: const EdgeInsets.all(20),
-          child: Text(
-            'Reciclaje total: ${user.plastico + user.carton + user.organico}',
-            style: const TextStyle(
-              fontSize: 15,
-              color: Colors.white,
-              fontWeight: FontWeight.w200,
-              fontStyle: FontStyle.italic,
             ),
-          ),
-        ),
-        Container(
-          margin: const EdgeInsets.all(30),
-          height: 60,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            gradient: const LinearGradient(
-              colors: [
-                Color.fromARGB(255, 51, 255, 44),
-                Color.fromARGB(255, 131, 236, 127),
-              ],
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-              stops: [0.25, 0.90],
-            ),
-            boxShadow: const [
-              BoxShadow(
-                color: Color(0xFF101012),
-                offset: Offset(-12, 12),
-                blurRadius: 8,
+            Container(
+              margin: const EdgeInsets.all(30),
+              height: 60,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                gradient: const LinearGradient(
+                  colors: [
+                    Color.fromARGB(255, 51, 255, 44),
+                    Color.fromARGB(255, 131, 236, 127),
+                  ],
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                  stops: [0.25, 0.90],
+                ),
+                boxShadow: const [
+                  BoxShadow(
+                    color: Color(0xFF101012),
+                    offset: Offset(-12, 12),
+                    blurRadius: 8,
+                  ),
+                ],
               ),
-            ],
-          ),
-          alignment: Alignment.centerLeft, //to align its child
-          padding: const EdgeInsets.all(20),
-          child: Text(
-            'Puntaje total: ${user.points}',
-            style: const TextStyle(
-              fontSize: 15,
-              color: Colors.white,
-              fontWeight: FontWeight.w200,
-              fontStyle: FontStyle.italic,
-            ),
-          ),
-        ),
-        Container(
-          margin: const EdgeInsets.all(30),
-          height: 60,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            gradient: const LinearGradient(
-              colors: [
-                Color.fromARGB(255, 51, 255, 44),
-                Color.fromARGB(255, 131, 236, 127),
-              ],
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-              stops: [0.25, 0.90],
-            ),
-            boxShadow: const [
-              BoxShadow(
-                color: Color(0xFF101012),
-                offset: Offset(-12, 12),
-                blurRadius: 8,
+              alignment: Alignment.centerLeft, //to align its child
+              padding: const EdgeInsets.all(20),
+              child: Text(
+                'Reciclaje total: ${user.plastico + user.carton + user.organico}',
+                style: const TextStyle(
+                  fontSize: 15,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w200,
+                  fontStyle: FontStyle.italic,
+                ),
               ),
-            ],
-          ),
-          alignment: Alignment.centerLeft, //to align its child
-          padding: const EdgeInsets.all(20),
-          child: Text(
-            'Carton reciclado: ${user.carton}',
-            style: const TextStyle(
-              fontSize: 15,
-              color: Colors.white,
-              fontWeight: FontWeight.w200,
-              fontStyle: FontStyle.italic,
             ),
-          ),
-        ),
-        Container(
-         margin: const EdgeInsets.all(30),
-          height: 60,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            gradient: const LinearGradient(
-              colors: [
-                Color.fromARGB(255, 51, 255, 44),
-                Color.fromARGB(255, 131, 236, 127),
-              ],
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-              stops: [0.25, 0.90],
-            ),
-            boxShadow: const [
-              BoxShadow(
-                color: Color(0xFF101012),
-                offset: Offset(-12, 12),
-                blurRadius: 8,
+            Container(
+              margin: const EdgeInsets.all(30),
+              height: 60,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                gradient: const LinearGradient(
+                  colors: [
+                    Color.fromARGB(255, 51, 255, 44),
+                    Color.fromARGB(255, 131, 236, 127),
+                  ],
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                  stops: [0.25, 0.90],
+                ),
+                boxShadow: const [
+                  BoxShadow(
+                    color: Color(0xFF101012),
+                    offset: Offset(-12, 12),
+                    blurRadius: 8,
+                  ),
+                ],
               ),
-            ],
-          ),
-          alignment: Alignment.centerLeft, //to align its child
-          padding: const EdgeInsets.all(20),
-          child: Text(
-            'Plastico reciclado: ${user.plastico}',
-            style: const TextStyle(
-              fontSize: 15,
-              color: Colors.white,
-              fontWeight: FontWeight.w200,
-              fontStyle: FontStyle.italic,
-            ),
-          ),
-        ),
-        Container(
-          margin: const EdgeInsets.all(30),
-          height: 60,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            gradient: const LinearGradient(
-              colors: [
-                Color.fromARGB(255, 51, 255, 44),
-                Color.fromARGB(255, 131, 236, 127),
-              ],
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-              stops: [0.25, 0.90],
-            ),
-            boxShadow: const [
-              BoxShadow(
-                color: Color(0xFF101012),
-                offset: Offset(-12, 12),
-                blurRadius: 8,
+              alignment: Alignment.centerLeft, //to align its child
+              padding: const EdgeInsets.all(20),
+              child: Text(
+                'Puntaje total: ${user.points}',
+                style: const TextStyle(
+                  fontSize: 15,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w200,
+                  fontStyle: FontStyle.italic,
+                ),
               ),
-            ],
-          ),
-          alignment: Alignment.centerLeft, //to align its child
-          padding: const EdgeInsets.all(20),
-          child: Text(
-            'Material orgánico reciclado: ${user.organico}',
-            style: const TextStyle(
-              fontSize: 15,
-              color: Colors.white,
-              fontWeight: FontWeight.w200,
-              fontStyle: FontStyle.italic,
             ),
-          ),
-        ),
-        //CircleAvatar(child: Text('${user.points}')),
-        //Text(user.name),
-        //Text((user.carton).toString()),
-      ])));
+            Container(
+              margin: const EdgeInsets.all(30),
+              height: 60,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                gradient: const LinearGradient(
+                  colors: [
+                    Color.fromARGB(255, 51, 255, 44),
+                    Color.fromARGB(255, 131, 236, 127),
+                  ],
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                  stops: [0.25, 0.90],
+                ),
+                boxShadow: const [
+                  BoxShadow(
+                    color: Color(0xFF101012),
+                    offset: Offset(-12, 12),
+                    blurRadius: 8,
+                  ),
+                ],
+              ),
+              alignment: Alignment.centerLeft, //to align its child
+              padding: const EdgeInsets.all(20),
+              child: Text(
+                'Carton reciclado: ${user.carton}',
+                style: const TextStyle(
+                  fontSize: 15,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w200,
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.all(30),
+              height: 60,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                gradient: const LinearGradient(
+                  colors: [
+                    Color.fromARGB(255, 51, 255, 44),
+                    Color.fromARGB(255, 131, 236, 127),
+                  ],
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                  stops: [0.25, 0.90],
+                ),
+                boxShadow: const [
+                  BoxShadow(
+                    color: Color(0xFF101012),
+                    offset: Offset(-12, 12),
+                    blurRadius: 8,
+                  ),
+                ],
+              ),
+              alignment: Alignment.centerLeft, //to align its child
+              padding: const EdgeInsets.all(20),
+              child: Text(
+                'Plastico reciclado: ${user.plastico}',
+                style: const TextStyle(
+                  fontSize: 15,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w200,
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.all(30),
+              height: 60,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                gradient: const LinearGradient(
+                  colors: [
+                    Color.fromARGB(255, 51, 255, 44),
+                    Color.fromARGB(255, 131, 236, 127),
+                  ],
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                  stops: [0.25, 0.90],
+                ),
+                boxShadow: const [
+                  BoxShadow(
+                    color: Color(0xFF101012),
+                    offset: Offset(-12, 12),
+                    blurRadius: 8,
+                  ),
+                ],
+              ),
+              alignment: Alignment.centerLeft, //to align its child
+              padding: const EdgeInsets.all(20),
+              child: Text(
+                'Material orgánico reciclado: ${user.organico}',
+                style: const TextStyle(
+                  fontSize: 15,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w200,
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
+            ),
+            //CircleAvatar(child: Text('${user.points}')),
+            //Text(user.name),
+            //Text((user.carton).toString()),
+          ])));
   Stream<List<UserM>> readUsers() => FirebaseFirestore.instance
       .collection('users')
       .snapshots()
