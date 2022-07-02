@@ -16,6 +16,9 @@ class _HomePageState extends State<HomePage> {
   final paginaActual = 1;
   final CollectionReference users =
       FirebaseFirestore.instance.collection('users');
+  final docUser = FirebaseFirestore.instance
+      .collection('users')
+      .doc('FLfuMOeM7wkBWziXLQUs');
   final a =
       'https://media-private.canva.com/X-X_c/MAFFF0X-X_c/1/s.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJWF6QO3UH4PAAJ6Q%2F20220630%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220630T052851Z&X-Amz-Expires=51051&X-Amz-Signature=0c707b138062e19e4fbc42aaafd5ba928518c2166500b8a49618bebee6472d5a&X-Amz-SignedHeaders=host&response-expires=Thu%2C%2030%20Jun%202022%2019%3A39%3A42%20GMT';
   final b =
@@ -27,7 +30,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) => Scaffold(
     appBar: AppBar(
-      title: Text('Home'),
+      title: const Text('Home'),
     ),
     backgroundColor: Colors.white,
         body: FutureBuilder<UserM?>(
@@ -44,7 +47,18 @@ class _HomePageState extends State<HomePage> {
                         child: SafeArea(
                           child: Column(children: [
                             Image.network(
-                              a,
+                              (() {
+                              if (1<2) {
+                                var p = docUser.toString();
+                                  print(p);
+                                  return p;
+                                } else if (3<4) {
+                              
+                                return "Bien hecho!! Reciclaste plastico.";
+                                }
+                              return "Recipiente incorrecto";
+                              })(),
+                              
                               alignment: Alignment.topCenter,
                               height: 300,
                             ),
@@ -83,17 +97,6 @@ class _HomePageState extends State<HomePage> {
       );
   //: buildUser(user);
 
-  void buildImage(user) {
-    if (user.points < 50) {
-      a;
-    } else if (user.points < 100) {
-      b;
-    } else if (user.points < 150) {
-      c;
-    } else {
-      d;
-    }
-  }
 
   Widget buildUser(UserM user) => Scaffold(
     body: Padding(

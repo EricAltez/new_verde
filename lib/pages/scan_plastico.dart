@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:new_verde/main.dart';
 import 'package:flutter/material.dart';
@@ -83,7 +84,6 @@ class _ScannerState extends State<ScanPlastico> {
         appBar: AppBar(title: const Text('QR scan')),
         body: Builder(
           builder: (BuildContext context) {
-            var res = _scanBarcode;
             return Container(
               alignment: Alignment.center,
               child: Flex(
@@ -97,6 +97,8 @@ class _ScannerState extends State<ScanPlastico> {
                     if (_scanBarcode == "Unknown") {
                       return "";
                     } else if (_scanBarcode == 'verde plastico') {
+
+                      docUser.update({'plastico': FieldValue.increment(1)});
                       return "Bien hecho!! Reciclaste plastico.";
                     }
                     return "Recipiente incorrecto";

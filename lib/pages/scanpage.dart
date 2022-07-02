@@ -7,7 +7,7 @@ class ScanPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Ir a la pagina'),
+        title: const Text('Ir a la pagina'),
       ),
       body: Center(
         child: Expanded(

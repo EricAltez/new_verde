@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
@@ -13,6 +14,9 @@ class CartonScan extends StatefulWidget {
 
 class _ScannerState extends State<CartonScan> {
   String _scanBarcode = 'Unknown';
+  final docUser = FirebaseFirestore.instance
+      .collection('users')
+      .doc('FLfuMOeM7wkBWziXLQUs');
 
   @override
   void initState() {
@@ -32,9 +36,6 @@ class _ScannerState extends State<CartonScan> {
     try {
       barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
           '#ff6666', 'Cancel', true, ScanMode.QR);
-      if (barcodeScanRes == 'scancarton') {
-        print('Bien hecho!! Reciclaste cartón.');
-      }
     } on PlatformException {
       barcodeScanRes = 'Failed to get platform version.';
     }
@@ -77,10 +78,8 @@ class _ScannerState extends State<CartonScan> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-        home: Scaffold(
-        appBar: AppBar(
-          title: const Text('QR scan')
-        ),
+      home: Scaffold(
+        appBar: AppBar(title: const Text('QR scan')),
         body: Builder(
           builder: (BuildContext context) {
             return Container(
@@ -96,6 +95,8 @@ class _ScannerState extends State<CartonScan> {
                     if (_scanBarcode == "Unknown") {
                       return "";
                     } else if (_scanBarcode == 'verde carton') {
+                      docUser.update({'points': FieldValue.increment(1)});
+                      docUser.update({'carton': FieldValue.increment(1)});
                       return "Bien hecho!! Reciclaste cartón.";
                     }
                     return "Recipiente incorrecto";

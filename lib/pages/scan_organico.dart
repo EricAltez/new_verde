@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
@@ -13,6 +14,9 @@ class ScanOrganico extends StatefulWidget {
 
 class _ScannerState extends State<ScanOrganico> {
   String _scanBarcode = 'Unknown';
+  final docUser = FirebaseFirestore.instance
+      .collection('users')
+      .doc('FLfuMOeM7wkBWziXLQUs');
 
   @override
   void initState() {
@@ -32,9 +36,6 @@ class _ScannerState extends State<ScanOrganico> {
     try {
       barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
           '#ff6666', 'Cancel', true, ScanMode.QR);
-      if (barcodeScanRes == 'scanorganico') {
-        print('Bien hecho!! Reciclaste material orgánico.');
-      }
     } on PlatformException {
       barcodeScanRes = 'Failed to get platform version.';
     }
@@ -56,9 +57,6 @@ class _ScannerState extends State<ScanOrganico> {
     try {
       barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
           '#ff6666', 'Cancel', true, ScanMode.BARCODE);
-      if (barcodeScanRes == 'scancarton') {
-        print('Bien hecho!! Reciclaste material orgánico.');
-      }
     } on PlatformException {
       barcodeScanRes = 'Failed to get platform version.';
     }
@@ -77,10 +75,8 @@ class _ScannerState extends State<ScanOrganico> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-        home: Scaffold(
-        appBar: AppBar(
-          title: const Text('QR scan')
-        ),
+      home: Scaffold(
+        appBar: AppBar(title: const Text('QR scan')),
         body: Builder(
           builder: (BuildContext context) {
             return Container(
@@ -96,6 +92,8 @@ class _ScannerState extends State<ScanOrganico> {
                     if (_scanBarcode == "Unknown") {
                       return "";
                     } else if (_scanBarcode == 'verde organico') {
+                        docUser.update({'points': FieldValue.increment(1)});
+                        docUser.update({'organico': FieldValue.increment(1)});
                       return "Bien hecho!! Reciclaste material orgánico.";
                     }
                     return "Recipente incorrecto";
