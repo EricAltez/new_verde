@@ -14,7 +14,7 @@ class LoginPage extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('images/fondo_login_app_verde.png'),
+            image: AssetImage('images/verde.jpg'),
             fit: BoxFit.cover)),
         //height: double.infinity,
         //width: double.infinity,
