@@ -21,23 +21,23 @@ class _HomePageState extends State<HomePage> {
       .collection('users')
       .doc('FLfuMOeM7wkBWziXLQUs');
   final a =
-      'https://media-private.canva.com/X-X_c/MAFFF0X-X_c/1/s.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJWF6QO3UH4PAAJ6Q%2F20220630%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220630T052851Z&X-Amz-Expires=51051&X-Amz-Signature=0c707b138062e19e4fbc42aaafd5ba928518c2166500b8a49618bebee6472d5a&X-Amz-SignedHeaders=host&response-expires=Thu%2C%2030%20Jun%202022%2019%3A39%3A42%20GMT';
+      'https://media-private.canva.com/2i_-Y/MAFFrN2i_-Y/1/s.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJWF6QO3UH4PAAJ6Q%2F20220706%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220706T104318Z&X-Amz-Expires=50713&X-Amz-Signature=858058dbd805e5df9ad36f19c95584fd6887d9aded317efd52b1d2d9ae712e63&X-Amz-SignedHeaders=host&response-expires=Thu%2C%2007%20Jul%202022%2000%3A48%3A31%20GMT';
   final b =
       'https://www.worldatlas.com/r/w960-q80/upload/89/99/3b/shutterstock-1263201358.jpg';
-  final c =
-      'https://wallpaperaccess.com/full/6153786.jpg';
+  final c = 'https://wallpaperaccess.com/full/6153786.jpg';
   final d =
       'https://c.pxhere.com/photos/47/5a/chestnut_tree_sunset_meadows_land_hdr_high_dynamic_range_chestnut_nature-1199025.jpg!d';
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: const Text('Home'),
-          backgroundColor: Colors.lightGreen,
-          automaticallyImplyLeading: true,
-          leading: IconButton(icon:Icon(Icons.arrow_back),
-          //onPressed:() => Navigator.pop(context, false),
-          onPressed:() => exit(0),)
-        ),
+            title: const Text('Home'),
+            backgroundColor: Colors.lightGreen,
+            automaticallyImplyLeading: true,
+            leading: IconButton(
+              icon: Icon(Icons.arrow_back),
+              //onPressed:() => Navigator.pop(context, false),
+              onPressed: () => exit(0),
+            )),
         backgroundColor: Colors.white,
         body: FutureBuilder<UserM?>(
           future: readUser(),
@@ -51,9 +51,8 @@ class _HomePageState extends State<HomePage> {
                   : Scaffold(
                       body: Center(
                         child: SafeArea(
-                          child: Column(children: [
-                            Expanded(child: buildUser(user))
-                          ]),
+                          child: Column(
+                              children: [Expanded(child: buildUser(user))]),
                         ),
                       ),
                       bottomNavigationBar: BottomNavigationBar(
