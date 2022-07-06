@@ -76,7 +76,14 @@ class _ScannerState extends State<ScanOrganico> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(title: const Text('QR scan')),
+        appBar: AppBar(
+            title: const Text('Escanner QR Orgánico'),
+            backgroundColor: Colors.lightGreen,
+            automaticallyImplyLeading: true,
+            leading: IconButton(
+              icon: Icon(Icons.arrow_back),
+              onPressed: () => Navigator.pop(context, false),
+            )),
         body: Builder(
           builder: (BuildContext context) {
             return Container(
@@ -92,8 +99,8 @@ class _ScannerState extends State<ScanOrganico> {
                     if (_scanBarcode == "Unknown") {
                       return "";
                     } else if (_scanBarcode == 'verde organico') {
-                        docUser.update({'points': FieldValue.increment(1)});
-                        docUser.update({'organico': FieldValue.increment(1)});
+                      docUser.update({'points': FieldValue.increment(1)});
+                      docUser.update({'organico': FieldValue.increment(1)});
                       return "Bien hecho!! Reciclaste material orgánico.";
                     }
                     return "Recipente incorrecto";

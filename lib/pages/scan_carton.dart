@@ -79,7 +79,14 @@ class _ScannerState extends State<CartonScan> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(title: const Text('QR scan')),
+        appBar: AppBar(
+            title: const Text('Escanner QR Cartón'),
+            backgroundColor: Colors.lightGreen,
+            automaticallyImplyLeading: true,
+            leading: IconButton(
+              icon: Icon(Icons.arrow_back),
+              onPressed: () => Navigator.pop(context, false),
+            )),
         body: Builder(
           builder: (BuildContext context) {
             return Container(

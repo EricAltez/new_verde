@@ -7,6 +7,12 @@ class MapPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Ir a la pagina anterior'),
+        backgroundColor: Colors.lightGreen,
+        automaticallyImplyLeading: true,
+        leading: IconButton(icon:Icon(Icons.arrow_back),
+        onPressed:() => Navigator.pop(context, false),
+        // onPressed:() => exit(0),
+        )
       ),
         body: Container(
             decoration: const BoxDecoration(

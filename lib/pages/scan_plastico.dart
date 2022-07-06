@@ -81,7 +81,14 @@ class _ScannerState extends State<ScanPlastico> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(title: const Text('QR scan')),
+        appBar: AppBar(
+            title: const Text('Escanner QR Plastico'),
+            backgroundColor: Colors.lightGreen,
+            automaticallyImplyLeading: true,
+            leading: IconButton(
+              icon: Icon(Icons.arrow_back),
+              onPressed: () => Navigator.pop(context, false),
+            )),
         body: Builder(
           builder: (BuildContext context) {
             return Container(
@@ -97,7 +104,6 @@ class _ScannerState extends State<ScanPlastico> {
                     if (_scanBarcode == "Unknown") {
                       return "";
                     } else if (_scanBarcode == 'verde plastico') {
-
                       docUser.update({'plastico': FieldValue.increment(1)});
                       docUser.update({'points': FieldValue.increment(1)});
                       return "Bien hecho!! Reciclaste plastico.";

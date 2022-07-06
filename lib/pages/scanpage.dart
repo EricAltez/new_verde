@@ -7,7 +7,13 @@ class ScanPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Ir a la pagina'),
+        title: const Text('Volver al Home'),
+        backgroundColor: Colors.lightGreen,
+        automaticallyImplyLeading: true,
+        leading: IconButton(icon:Icon(Icons.arrow_back),
+        onPressed:() => Navigator.pop(context, false),
+        // onPressed:() => exit(0),
+        )
       ),
       body: Center(
         child: Expanded(

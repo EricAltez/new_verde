@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -31,6 +32,11 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
           title: const Text('Home'),
+          backgroundColor: Colors.lightGreen,
+          automaticallyImplyLeading: true,
+          leading: IconButton(icon:Icon(Icons.arrow_back),
+          //onPressed:() => Navigator.pop(context, false),
+          onPressed:() => exit(0),)
         ),
         backgroundColor: Colors.white,
         body: FutureBuilder<UserM?>(
