@@ -26,9 +26,9 @@ class ScanPage extends StatelessWidget {
                   Navigator.pushNamed(context, 'scanplastico');
                 },
                 child: Ink.image(
-                  image: const AssetImage('images/botella (1).jpg'),
-                  height: 150,
-                  width: 200,
+                  image: const AssetImage('images/botella.png'),
+                  height: 130,
+                  width: 180,
                   fit: BoxFit.cover,
                   child: const Text(
                     'Plástico',
@@ -46,9 +46,9 @@ class ScanPage extends StatelessWidget {
                   Navigator.pushNamed(context, 'scancarton');
                 },
                 child: Ink.image(
-                  image: const AssetImage('images/carton.jpg'),
-                  height: 150,
-                  width: 200,
+                  image: const AssetImage('images/carton.png'),
+                  height: 130,
+                  width: 180,
                   fit: BoxFit.cover,
                   child: const Text(
                     'Cartón',
@@ -66,9 +66,9 @@ class ScanPage extends StatelessWidget {
                   Navigator.pushNamed(context, 'scanorganico');
                 },
                 child: Ink.image(
-                  image: const AssetImage('images/manzana.jpg'),
-                  height: 150,
-                  width: 200,
+                  image: const AssetImage('images/manzana.png'),
+                  height: 130,
+                  width: 180,
                   fit: BoxFit.cover,
                   child: const Text(
                     'Orgánicos',
