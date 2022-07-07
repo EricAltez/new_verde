@@ -9,7 +9,7 @@ class MapPage extends StatelessWidget {
         title: const Text('Ir a la pagina anterior'),
         backgroundColor: Colors.lightGreen,
         automaticallyImplyLeading: true,
-        leading: IconButton(icon:Icon(Icons.arrow_back),
+        leading: IconButton(icon:const Icon(Icons.arrow_back),
         onPressed:() => Navigator.pop(context, false),
         // onPressed:() => exit(0),
         )

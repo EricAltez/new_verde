@@ -84,20 +84,60 @@ class _ScannerState extends State<CartonScan> {
             backgroundColor: Colors.lightGreen,
             automaticallyImplyLeading: true,
             leading: IconButton(
-              icon: Icon(Icons.arrow_back),
+              icon: const Icon(Icons.arrow_back),
               onPressed: () => Navigator.pop(context, false),
-            )),
+            ),
+            flexibleSpace: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Color.fromARGB(192, 120, 199, 30),
+                  Color.fromARGB(64, 131, 236, 127),
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                stops: [0.25, 0.90],
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Color(0xFF101012),
+                  offset: Offset(-5, 5),
+                  blurRadius: 8,
+                ),
+              ],
+            ),
+            ),
+        ),
         body: Builder(
           builder: (BuildContext context) {
-            return Container(
+            return Padding(
+              padding: const EdgeInsets.all(20),
+              child: Container(
               alignment: Alignment.center,
-              child: Flex(
-                direction: Axis.vertical,
-                mainAxisAlignment: MainAxisAlignment.center,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
+                  const Text(
+                    "El cartón debe estar libre de restos de comida, limpio y seco.",
+                    style: TextStyle(
+                      fontSize: 25,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w200,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
                   ElevatedButton(
                       onPressed: () => scanQR(),
-                      child: const Text('Start QR scan')),
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.green,
+                        padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                        textStyle: const TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold
+                        ),
+                      ),
+                      child: const Text('Escanear QR')),
                   Text((() {
                     if (_scanBarcode == "Unknown") {
                       return "";
@@ -110,35 +150,10 @@ class _ScannerState extends State<CartonScan> {
                   })())
                 ],
               ),
-            );
+            ));
           },
         ),
       ),
     );
   }
 }
-
-/*import 'package:flutter/material.dart';
-
-class CartonScan extends StatelessWidget {
-  const CartonScan({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          const Center(
-            child: Text('sacan c'),
-          ),
-          TextButton(
-          child: const Text('Volver'),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        ],
-      ),
-    );
-  }
-}*/

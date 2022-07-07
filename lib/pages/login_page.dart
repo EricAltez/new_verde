@@ -11,25 +11,19 @@ class LoginPage extends StatelessWidget {
     final passwordController = TextEditingController();
 
     return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('images/verde.jpg'),
-            fit: BoxFit.cover)),
-        //height: double.infinity,
-        //width: double.infinity,
-        child: SafeArea(
+      body: SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(
                 vertical: 15,
-                horizontal: 5,
+                horizontal: 15,
               ),
               child:
                 Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Expanded(
-                      child: Image.asset('')
+                      child: Image.asset('images/intro2.jpg')
                     ),
                     TextField(
                       controller: emailController,
@@ -69,6 +63,8 @@ class LoginPage extends StatelessWidget {
                     ),
                     const SizedBox(height: 15),
                     Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         const Text(
                           'Aun no tiene una cuenta?',
@@ -90,8 +86,8 @@ class LoginPage extends StatelessWidget {
                 ),
             ),
           ),
-        ),
-    );
+        )
+    ;
   }
 
   void _signIn(BuildContext context, String email, String password) {

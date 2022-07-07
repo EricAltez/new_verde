@@ -14,21 +14,19 @@ class SignUpPage extends StatelessWidget {
     final passwordController = TextEditingController();
 
     return Scaffold(
-      body: Container(
-        height: double.infinity,
-        width: double.infinity,
-        child: SafeArea(
+      body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.symmetric(
                 vertical: 15,
-                horizontal: 5,
+                horizontal: 15,
               ),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Expanded(
                   child:
-                    Image.asset('images/Logo_Verde2.jpg')
+                    Image.asset('images/intro2.jpg')
                 ),
                 TextFormField(
                     controller: emailController,
@@ -78,6 +76,8 @@ class SignUpPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 24),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     const Text(
                       'Ya tiene una cuenta?',
@@ -99,8 +99,8 @@ class SignUpPage extends StatelessWidget {
             ),
           ),
         ),
-      ),
-    );
+      )
+    ;
   }
 
   Future _signUp(BuildContext context, GlobalKey<FormState> formKey,
