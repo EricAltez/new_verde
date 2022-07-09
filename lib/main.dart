@@ -41,22 +41,4 @@ class MyApp extends StatelessWidget {
       },
     );
   }
-
-  Future createUser({required String name}) async {
-    //referencia al documento
-    final docUser = FirebaseFirestore.instance.collection('users').doc();
-
-    final user = UserM(
-      id: docUser.id,
-      name: name,
-      points: 0,
-      organico: 0,
-      carton: 0,
-      plastico: 0,
-    );
-    final json = user.toJson();
-
-    ///creacion del documento y escritura a firebase
-    await docUser.set(json);
-  }
 }

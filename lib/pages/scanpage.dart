@@ -14,6 +14,26 @@ class ScanPage extends StatelessWidget {
           icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.pop(context, false),
         ),
+        flexibleSpace: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Color.fromARGB(192, 120, 199, 30),
+                  Color.fromARGB(64, 131, 236, 127),
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                stops: [0.25, 0.90],
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Color(0xFF101012),
+                  offset: Offset(-5, 5),
+                  blurRadius: 8,
+                ),
+              ],
+            ),
+          ),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
