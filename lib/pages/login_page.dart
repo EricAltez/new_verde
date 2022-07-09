@@ -42,7 +42,7 @@ class LoginPage extends StatelessWidget {
                       decoration: const InputDecoration(
                           labelText: 'Contraseña',
                           border: OutlineInputBorder(),
-                          prefixIcon: Icon(Icons.email)),
+                          prefixIcon: Icon(Icons.lock)),
                       obscureText: true,
                     ),
                     const SizedBox(
@@ -105,6 +105,6 @@ class LoginPage extends StatelessWidget {
         .then((value) => Navigator.of(context).pushReplacementNamed('home'))
         .catchError((error) => Utils.showSnackBar(error.message));
 
-    // navigatorKey.currentState!.popUntil((route) => route.isFirst);
+    //navigatorKey.currentState!.popUntil((route) => route.isFirst);
   }
 }

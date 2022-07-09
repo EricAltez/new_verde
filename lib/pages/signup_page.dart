@@ -46,14 +46,14 @@ class SignUpPage extends StatelessWidget {
                   controller: passwordController,
                   textInputAction: TextInputAction.done,
                   decoration: const InputDecoration(
-                    labelText: 'Password',
+                    labelText: 'Contraseña',
                     border: OutlineInputBorder(),
-                      prefixIcon: Icon(Icons.email)),
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  validator: (value) => value != null && value.length < 6
+                    prefixIcon: Icon(Icons.lock)),
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    validator: (value) => value != null && value.length < 6
                       ? '6 characters minimun'
                       : null,
-                  obscureText: true,
+                    obscureText: true,
                 ),
                 const SizedBox(
                   height: 20,

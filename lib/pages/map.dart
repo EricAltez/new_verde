@@ -6,7 +6,7 @@ class MapPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Ir a la pagina anterior'),
+        title: const Text('Volver al inicio'),
         backgroundColor: Colors.lightGreen,
         automaticallyImplyLeading: true,
         leading: IconButton(icon:const Icon(Icons.arrow_back),

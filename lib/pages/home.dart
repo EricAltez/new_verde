@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: const Text('Home'),
+          title: const Text('Inicio'),
           backgroundColor: Colors.green,
           automaticallyImplyLeading: true,
           leading: IconButton(
@@ -258,7 +258,7 @@ class _HomePageState extends State<HomePage> {
             alignment: Alignment.centerLeft, //to align its child
             padding: const EdgeInsets.all(20),
             child: Text(
-              'Carton reciclado: ${user.carton}',
+              'Cartón reciclado: ${user.carton}',
               style: const TextStyle(
                 fontSize: 15,
                 color: Colors.white,
@@ -292,7 +292,7 @@ class _HomePageState extends State<HomePage> {
             alignment: Alignment.centerLeft, //to align its child
             padding: const EdgeInsets.all(20),
             child: Text(
-              'Plastico reciclado: ${user.plastico}',
+              'Plástico reciclado: ${user.plastico}',
               style: const TextStyle(
                 fontSize: 15,
                 color: Colors.white,
