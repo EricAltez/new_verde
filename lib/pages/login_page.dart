@@ -12,6 +12,13 @@ class LoginPage extends StatelessWidget {
 
     return Scaffold(
       body: SafeArea(
+        child: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("images/fondo.jpg"),
+              fit: BoxFit.cover,
+            ),
+          ),
             child: Padding(
               padding: const EdgeInsets.symmetric(
                 vertical: 15,
@@ -23,15 +30,18 @@ class LoginPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Expanded(
-                      child: Image.asset('images/intro2.jpg')
+                      child: Image.asset('images/verdelogopng.png')
                     ),
                     TextField(
                       controller: emailController,
                       cursorColor: Colors.black,
-                      decoration: const InputDecoration(
-                          labelText: 'Email',
-                          border: OutlineInputBorder(),
-                          prefixIcon: Icon(Icons.email)),
+                      decoration: InputDecoration(
+                        
+                        filled: true,
+                        fillColor: Colors.white,
+                        labelText: 'Email',
+                        border: OutlineInputBorder(borderRadius: BorderRadius.circular(25)),
+                        prefixIcon: const Icon(Icons.email)),
                       keyboardType: TextInputType.emailAddress,
                       textInputAction: TextInputAction.next,
                     ),
@@ -39,10 +49,12 @@ class LoginPage extends StatelessWidget {
                     TextField(
                       controller: passwordController,
                       textInputAction: TextInputAction.done,
-                      decoration: const InputDecoration(
-                          labelText: 'Contraseña',
-                          border: OutlineInputBorder(),
-                          prefixIcon: Icon(Icons.lock)),
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        labelText: 'Contraseña',
+                        border: OutlineInputBorder(borderRadius: BorderRadius.circular(25)),
+                        prefixIcon: const Icon(Icons.lock)),
                       obscureText: true,
                     ),
                     const SizedBox(
@@ -50,6 +62,11 @@ class LoginPage extends StatelessWidget {
                     ),
                     ElevatedButton.icon(
                       style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18.0),
+                          side: const BorderSide(color: Colors.black),
+                        ),
+                        side: const BorderSide(color: Colors.black, width: 0.5,),
                         primary: Colors.lightGreen,
                         minimumSize: const Size.fromHeight(50),
                       ),
@@ -75,6 +92,7 @@ class LoginPage extends StatelessWidget {
                           child: Text(
                             'Registrate',
                             style: TextStyle(
+                              fontSize: 20,
                               decoration: TextDecoration.underline,
                               color: Theme.of(context).colorScheme.secondary,
                             ),
@@ -87,7 +105,7 @@ class LoginPage extends StatelessWidget {
             ),
           ),
         )
-    ;
+    );
   }
 
   void _signIn(BuildContext context, String email, String password) {

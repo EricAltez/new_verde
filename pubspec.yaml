@@ -60,7 +60,8 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - images/intro2.jpg
+    - images/verdelogopng.png
+    - images/fondo.jpg
     - images/manzana.png
     - images/carton.png
     - images/botella.png

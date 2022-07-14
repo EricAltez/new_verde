@@ -69,6 +69,13 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
+        child: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("images/fondo.jpg"),
+              fit: BoxFit.cover,
+            ),
+          ),
         child: Padding(
           padding: const EdgeInsets.symmetric(
             vertical: 15,
@@ -78,15 +85,17 @@ class _SignUpPageState extends State<SignUpPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Expanded(child: Image.asset('images/intro2.jpg')),
+              Expanded(child: Image.asset('images/verdelogopng.png')),
               TextFormField(
                 controller: _nameController,
                 cursorColor: Colors.black,
                 textInputAction: TextInputAction.next,
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
                   labelText: 'Nombre',
-                  border: OutlineInputBorder(),
-                  prefixIcon: Icon(Icons.people),
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(25)),
+                  prefixIcon: const Icon(Icons.people),
                 ),
               ),
               const SizedBox(height: 4),
@@ -94,10 +103,12 @@ class _SignUpPageState extends State<SignUpPage> {
                 controller: _emailController,
                 cursorColor: Colors.black,
                 textInputAction: TextInputAction.next,
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
                     labelText: 'Email',
-                    border: OutlineInputBorder(),
-                    prefixIcon: Icon(Icons.email)),
+                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(25), borderSide: const BorderSide(color: Colors.black, width: 0.5)),
+                    prefixIcon: const Icon(Icons.email)),
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 validator: (email) =>
                   email != null && !EmailValidator.validate(email)
@@ -107,10 +118,12 @@ class _SignUpPageState extends State<SignUpPage> {
               TextFormField(
                 controller: _passwordController,
                 textInputAction: TextInputAction.done,
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
                   labelText: 'Contraseña',
-                  border: OutlineInputBorder(),
-                  prefixIcon: Icon(Icons.lock),
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(25)),
+                  prefixIcon: const Icon(Icons.lock),
                 ),
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 validator: (value) => value != null && value.length < 6
@@ -123,6 +136,11 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18.0),
+                          side: const BorderSide(color: Colors.black),
+                        ),
+                  side: const BorderSide(color: Colors.black, width: 0.5),
                   primary: Colors.lightGreen,
                   minimumSize: const Size.fromHeight(50),
                 ),
@@ -147,6 +165,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     child: Text(
                       'Log In',
                       style: TextStyle(
+                        fontSize: 20,
                         decoration: TextDecoration.underline,
                         color: Theme.of(context).colorScheme.secondary,
                       ),
@@ -158,6 +177,7 @@ class _SignUpPageState extends State<SignUpPage> {
           ),
         ),
       ),
+    ),
     );
   }
 
