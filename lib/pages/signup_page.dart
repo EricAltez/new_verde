@@ -72,112 +72,117 @@ class _SignUpPageState extends State<SignUpPage> {
         child: Container(
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("images/fondo.jpg"),
+              image: AssetImage("images/fondo_login.png"),
               fit: BoxFit.cover,
             ),
           ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-            vertical: 15,
-            horizontal: 15,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Expanded(child: Image.asset('images/verdelogopng.png')),
-              TextFormField(
-                controller: _nameController,
-                cursorColor: Colors.black,
-                textInputAction: TextInputAction.next,
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Colors.white,
-                  labelText: 'Nombre',
-                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(25)),
-                  prefixIcon: const Icon(Icons.people),
-                ),
-              ),
-              const SizedBox(height: 4),
-              TextFormField(
-                controller: _emailController,
-                cursorColor: Colors.black,
-                textInputAction: TextInputAction.next,
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Colors.white,
-                    labelText: 'Email',
-                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(25), borderSide: const BorderSide(color: Colors.black, width: 0.5)),
-                    prefixIcon: const Icon(Icons.email)),
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                validator: (email) =>
-                  email != null && !EmailValidator.validate(email)
-                    ? 'Ingresa un email válido!'
-                    : null),
-              const SizedBox(height: 4),
-              TextFormField(
-                controller: _passwordController,
-                textInputAction: TextInputAction.done,
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Colors.white,
-                  labelText: 'Contraseña',
-                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(25)),
-                  prefixIcon: const Icon(Icons.lock),
-                ),
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                validator: (value) => value != null && value.length < 6
-                  ? '6 characters minimun'
-                  : null,
-                obscureText: true,
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              ElevatedButton.icon(
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18.0),
-                          side: const BorderSide(color: Colors.black),
-                        ),
-                  side: const BorderSide(color: Colors.black, width: 0.5),
-                  primary: Colors.lightGreen,
-                  minimumSize: const Size.fromHeight(50),
-                ),
-                icon: const Icon(Icons.lock_open, size: 32),
-                label: const Text(
-                  'Registrarse',
-                  style: TextStyle(fontSize: 24),
-                ),
-                onPressed: () => _signUp(),
-              ),
-              const SizedBox(height: 24),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  const Text(
-                    'Ya tiene una cuenta?',
-                    style: TextStyle(color: Colors.black, fontSize: 20),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: 15,
+              horizontal: 15,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Expanded(child: Image.asset('images/verdelogopng.png')),
+                TextFormField(
+                  controller: _nameController,
+                  cursorColor: Colors.black,
+                  textInputAction: TextInputAction.next,
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    labelText: 'Nombre',
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(25)),
+                    prefixIcon: const Icon(Icons.people),
                   ),
-                  MaterialButton(
-                    onPressed: () => Navigator.pushNamed(context, 'login'),
-                    child: Text(
-                      'Log In',
-                      style: TextStyle(
-                        fontSize: 20,
-                        decoration: TextDecoration.underline,
-                        color: Theme.of(context).colorScheme.secondary,
-                      ),
+                ),
+                const SizedBox(height: 4),
+                TextFormField(
+                    controller: _emailController,
+                    cursorColor: Colors.black,
+                    textInputAction: TextInputAction.next,
+                    decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        labelText: 'Email',
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(25),
+                            borderSide: const BorderSide(
+                                color: Colors.black, width: 0.5)),
+                        prefixIcon: const Icon(Icons.email)),
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    validator: (email) =>
+                        email != null && !EmailValidator.validate(email)
+                            ? 'Ingresa un email válido!'
+                            : null),
+                const SizedBox(height: 4),
+                TextFormField(
+                  controller: _passwordController,
+                  textInputAction: TextInputAction.done,
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    labelText: 'Contraseña',
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(25)),
+                    prefixIcon: const Icon(Icons.lock),
+                  ),
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  validator: (value) => value != null && value.length < 6
+                      ? '6 characters minimun'
+                      : null,
+                  obscureText: true,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                ElevatedButton.icon(
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18.0),
+                      side: const BorderSide(color: Colors.black),
                     ),
-                  )
-                ],
-              ),
-            ],
+                    side: const BorderSide(color: Colors.black, width: 0.5),
+                    primary: Colors.lightGreen,
+                    minimumSize: const Size.fromHeight(50),
+                  ),
+                  icon: const Icon(Icons.lock_open, size: 32),
+                  label: const Text(
+                    'Registrarse',
+                    style: TextStyle(fontSize: 24),
+                  ),
+                  onPressed: () => _signUp(),
+                ),
+                const SizedBox(height: 24),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    const Text(
+                      'Ya tiene una cuenta?',
+                      style: TextStyle(color: Colors.black, fontSize: 20),
+                    ),
+                    MaterialButton(
+                      onPressed: () => Navigator.pushNamed(context, 'login'),
+                      child: Text(
+                        'Log In',
+                        style: TextStyle(
+                          fontSize: 20,
+                          decoration: TextDecoration.underline,
+                          color: Theme.of(context).colorScheme.secondary,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
-    ),
     );
   }
 
