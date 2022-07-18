@@ -16,7 +16,7 @@ class _ScannerState extends State<ScanOrganico> {
   String _scanBarcode = 'Unknown';
   final docUser = FirebaseFirestore.instance
       .collection('users')
-      .doc('FLfuMOeM7wkBWziXLQUs');
+      .doc('fmXGtUKgGWfYQXbYRY2q');
 
   @override
   void initState() {
