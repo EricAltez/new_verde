@@ -92,13 +92,18 @@ class _ScannerState extends State<ScanPlastico> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
-                  const Text(
-                    "El plástico debe estar limpio y en lo posible compactado.",
-                    style: TextStyle(
-                      fontSize: 25,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w200,
-                      fontStyle: FontStyle.italic,
+                Card(
+                    elevation: 5,
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
+                    child: Column(
+                      children: <Widget>[
+                        ListTile(
+                          // leading: Icon(Icons.photo_album, color: Colors.blue),
+                          title: Text("Modo correcto de reciclar plástico"),
+                          subtitle: Text(
+                              "El plástico debe estar limpio y en lo posible compactado."),
+                        ),
+                      ],
                     ),
                   ),
                   ElevatedButton(
