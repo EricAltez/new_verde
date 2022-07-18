@@ -85,7 +85,7 @@ class _SignUpPageState extends State<SignUpPage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Expanded(child: Image.asset('images/verde_es_mejor.png')),
+                Expanded(child: Image.asset('images/verde_es_mejor2.png')),
                 TextFormField(
                   controller: _nameController,
                   cursorColor: Colors.black,
