@@ -21,12 +21,12 @@ class _HomePageState extends State<HomePage> {
       .collection('users')
       .doc('FLfuMOeM7wkBWziXLQUs');
   final a =
-      'https://media-private.canva.com/2i_-Y/MAFFrN2i_-Y/1/s.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJWF6QO3UH4PAAJ6Q%2F20220706%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220706T104318Z&X-Amz-Expires=50713&X-Amz-Signature=858058dbd805e5df9ad36f19c95584fd6887d9aded317efd52b1d2d9ae712e63&X-Amz-SignedHeaders=host&response-expires=Thu%2C%2007%20Jul%202022%2000%3A48%3A31%20GMT';
+      'https://media-private.canva.com/2i_-Y/MAFFrN2i_-Y/1/s.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJWF6QO3UH4PAAJ6Q%2F20220717%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220717T104318Z&X-Amz-Expires=79513&X-Amz-Signature=ae378aef213b2b58617d743c124e3ba9ef1f2320d29b6608aa99cbce8bb926af&X-Amz-SignedHeaders=host&response-expires=Mon%2C%2018%20Jul%202022%2008%3A48%3A31%20GMT';
   final b =
-      'https://media-private.canva.com/fOaE4/MAFFtjfOaE4/1/s.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJWF6QO3UH4PAAJ6Q%2F20220706%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220706T212246Z&X-Amz-Expires=47385&X-Amz-Signature=fdf42c0a68f279d8a29f19ad878ace5a5b26987f7b44c44ba20a5cadaf2114bf&X-Amz-SignedHeaders=host&response-expires=Thu%2C%2007%20Jul%202022%2010%3A32%3A31%20GMT';
-  final c = 'https://media-private.canva.com/2Mqc4/MAFFtr2Mqc4/1/s.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJWF6QO3UH4PAAJ6Q%2F20220707%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220707T024247Z&X-Amz-Expires=28795&X-Amz-Signature=9a213e0ba2f7aa1ea0c36495e9549e2f115c4ef8a9373b492808806afda510e3&X-Amz-SignedHeaders=host&response-expires=Thu%2C%2007%20Jul%202022%2010%3A42%3A42%20GMT';
+      'https://media-private.canva.com/HzVx4/MAFFt2HzVx4/1/s.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJWF6QO3UH4PAAJ6Q%2F20220718%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220718T021603Z&X-Amz-Expires=22195&X-Amz-Signature=f57f61dfcfe610b1dcceda4e20f1a178eb9b7d665b6372b22740131377193790&X-Amz-SignedHeaders=host&response-expires=Mon%2C%2018%20Jul%202022%2008%3A25%3A58%20GMT';
+  final c = 'https://media-private.canva.com/46ziE/MAFFt146ziE/1/s.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJWF6QO3UH4PAAJ6Q%2F20220718%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220718T015924Z&X-Amz-Expires=24006&X-Amz-Signature=c5dc768df73c1a1f14183f916c86f9cb09bf829cef977c94f471c8704f7337f1&X-Amz-SignedHeaders=host&response-expires=Mon%2C%2018%20Jul%202022%2008%3A39%3A30%20GMT';
   final d =
-      'https://media-private.canva.com/EBghI/MAFFtxEBghI/1/s.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJWF6QO3UH4PAAJ6Q%2F20220706%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220706T232522Z&X-Amz-Expires=68615&X-Amz-Signature=46805dc69f9843b101814c4217d3db68d2922b2f16f9cf60733312a4b2ffb2fd&X-Amz-SignedHeaders=host&response-expires=Thu%2C%2007%20Jul%202022%2018%3A28%3A57%20GMT';
+      'https://media-private.canva.com/EBghI/MAFFtxEBghI/1/s.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJWF6QO3UH4PAAJ6Q%2F20220717%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220717T232522Z&X-Amz-Expires=32615&X-Amz-Signature=72cc20812a75d3337a9c931702fd2dee130954e7a9b42c20938e4857b5615d59&X-Amz-SignedHeaders=host&response-expires=Mon%2C%2018%20Jul%202022%2008%3A28%3A57%20GMT';
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
@@ -72,38 +72,38 @@ class _HomePageState extends State<HomePage> {
             } else if (snapshot.hasData) {
               final user = snapshot.data;
               return user == null
-                  ? const Center(child: Text('No hay usuario'))
-                  : Scaffold(
-                      body: Center(
-                        child: SafeArea(
-                          child: Column(
-                              children: [Expanded(child: buildUser(user))]),
-                        ),
+                ? const Center(child: Text('No hay usuario'))
+                : Scaffold(
+                    body: Center(
+                      child: SafeArea(
+                        child: Column(
+                            children: [Expanded(child: buildUser(user))]),
                       ),
-                      bottomNavigationBar: BottomNavigationBar(
-                        onTap: (index) {
-                          if (index == 2) {
-                            launchUrlString("https://verde-mvp.blogspot.com/");
-                          }
-                          if (index == 1) {
-                            Navigator.pushNamed(context, 'scanpage');
-                          }
-                          if (index == 0) {
-                            Navigator.pushNamed(context, 'mappage');
-                          }
-                        },
-                        backgroundColor: const Color.fromARGB(64, 131, 236, 127),
-                        currentIndex: paginaActual,
-                        items: const [
-                          BottomNavigationBarItem(
-                              icon: Icon(Icons.map), label: 'Mapa'),
-                          BottomNavigationBarItem(
-                              icon: Icon(Icons.qr_code), label: 'Scanner QR'),
-                          BottomNavigationBarItem(
-                              icon: Icon(Icons.text_format), label: 'Blog'),
-                        ],
-                      ),
-                    );
+                    ),
+                    bottomNavigationBar: BottomNavigationBar(
+                      onTap: (index) {
+                        if (index == 2) {
+                          launchUrlString("https://verde-mvp.blogspot.com/");
+                        }
+                        if (index == 1) {
+                          Navigator.pushNamed(context, 'scanpage');
+                        }
+                        if (index == 0) {
+                          Navigator.pushNamed(context, 'mappage');
+                        }
+                      },
+                      backgroundColor: const Color.fromARGB(64, 131, 236, 127),
+                      currentIndex: paginaActual,
+                      items: const [
+                        BottomNavigationBarItem(
+                            icon: Icon(Icons.map), label: 'Mapa'),
+                        BottomNavigationBarItem(
+                            icon: Icon(Icons.qr_code), label: 'Scanner QR'),
+                        BottomNavigationBarItem(
+                            icon: Icon(Icons.text_format), label: 'Blog'),
+                      ],
+                    ),
+                  );
             } else {
               return const Center(child: CircularProgressIndicator());
             }

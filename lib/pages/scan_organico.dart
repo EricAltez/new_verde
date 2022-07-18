@@ -77,31 +77,31 @@ class _ScannerState extends State<ScanOrganico> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-            title: const Text('Escanner QR Orgánico'),
-            backgroundColor: const Color.fromARGB(192, 120, 199, 30),
-            automaticallyImplyLeading: true,
-            leading: IconButton(
-              icon: const Icon(Icons.arrow_back),
-              onPressed: () => Navigator.pop(context, false),
-            ),
-            flexibleSpace: Container(
+          title: const Text('Escanner QR Orgánico'),
+          backgroundColor: const Color.fromARGB(192, 120, 199, 30),
+          automaticallyImplyLeading: true,
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () => Navigator.pop(context, false),
+          ),
+          flexibleSpace: Container(
             decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Color.fromARGB(192, 120, 199, 30),
-                  Color.fromARGB(64, 131, 236, 127),
-                ],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                stops: [0.25, 0.90],
-              ),
-              boxShadow: [
-                BoxShadow(
-                  color: Color(0xFF101012),
-                  offset: Offset(-5, 5),
-                  blurRadius: 8,
-                ),
+            gradient: LinearGradient(
+              colors: [
+                Color.fromARGB(192, 120, 199, 30),
+                Color.fromARGB(64, 131, 236, 127),
               ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            stops: [0.25, 0.90],
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Color(0xFF101012),
+                offset: Offset(-5, 5),
+                blurRadius: 8,
+              ),
+            ],
             ),
           ),
         ),
@@ -110,49 +110,50 @@ class _ScannerState extends State<ScanOrganico> {
             return Padding(
               padding: const EdgeInsets.all(20),
               child: Container(
-              alignment: Alignment.center,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                Card(
-                    elevation: 5,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
-                    child: Column(
-                      children: <Widget>[
-                        ListTile(
-                          // leading: Icon(Icons.photo_album, color: Colors.blue),
-                          title: Text("Modo correcto de reciclar material orgánico"),
-                          subtitle: Text(
-                              "Restos de comida, material vegetal y otros restos biodegradables."),
-                        ),
-                      ],
-                    ),
-                  ),
-                  ElevatedButton(
-                      onPressed: () => scanQR(),
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.green,
-                        padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-                        textStyle: const TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold
-                        ),
+                alignment: Alignment.center,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    Card(
+                      elevation: 5,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
+                      child: Column(
+                        children: const <Widget>[
+                          ListTile(
+                            // leading: Icon(Icons.photo_album, color: Colors.blue),
+                            title: Text("Modo correcto de reciclar material orgánico"),
+                            subtitle: Text(
+                                "Restos de comida, material vegetal y otros restos biodegradables."),
+                          ),
+                        ],
                       ),
-                      child: const Text('Escanear QR')),
-                  Text((() {
-                    if (_scanBarcode == "Unknown") {
-                      return "";
-                    } else if (_scanBarcode == 'verde organico') {
-                      docUser.update({'points': FieldValue.increment(1)});
-                      docUser.update({'organico': FieldValue.increment(1)});
-                      return "Bien hecho!! Reciclaste material orgánico.";
-                    }
-                    return "Recipente incorrecto";
-                  })())
-                ],
+                    ),
+                    ElevatedButton(
+                        onPressed: () => scanQR(),
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.green,
+                          padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                          textStyle: const TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold
+                          ),
+                        ),
+                        child: const Text('Escanear QR')),
+                    Text((() {
+                      if (_scanBarcode == "Unknown") {
+                        return "";
+                      } else if (_scanBarcode == 'verde organico') {
+                        docUser.update({'points': FieldValue.increment(1)});
+                        docUser.update({'organico': FieldValue.increment(1)});
+                        return "Bien hecho!! Reciclaste material orgánico.";
+                      }
+                      return "Recipente incorrecto";
+                    })())
+                  ],
+                ),
               ),
-            ));
+            );
           },
         ),
       ),

@@ -80,14 +80,14 @@ class _ScannerState extends State<CartonScan> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-            title: const Text('Escanner QR Cartón'),
-            backgroundColor: Colors.lightGreen,
-            automaticallyImplyLeading: true,
-            leading: IconButton(
-              icon: const Icon(Icons.arrow_back),
-              onPressed: () => Navigator.pop(context, false),
-            ),
-            flexibleSpace: Container(
+          title: const Text('Escanner QR Cartón'),
+          backgroundColor: Colors.lightGreen,
+          automaticallyImplyLeading: true,
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () => Navigator.pop(context, false),
+          ),
+          flexibleSpace: Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
                 colors: [
@@ -106,33 +106,33 @@ class _ScannerState extends State<CartonScan> {
                 ),
               ],
             ),
-            ),
+          ),
         ),
         body: Builder(
           builder: (BuildContext context) {
             return Padding(
               padding: const EdgeInsets.all(20),
               child: Container(
-              alignment: Alignment.center,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                Card(
-                    elevation: 5,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
-                    child: Column(
-                      children: <Widget>[
-                        ListTile(
-                          // leading: Icon(Icons.photo_album, color: Colors.blue),
-                          title: Text("Modo correcto de reciclar cartón"),
-                          subtitle: Text(
-                              "Debe estar seco y limpio."),
-                        ),
-                      ],
+                alignment: Alignment.center,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    Card(
+                      elevation: 5,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
+                      child: Column(
+                        children: const <Widget>[
+                          ListTile(
+                            // leading: Icon(Icons.photo_album, color: Colors.blue),
+                            title: Text("Modo correcto de reciclar cartón"),
+                            subtitle: Text(
+                                "Debe estar seco y limpio."),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  ElevatedButton(
+                    ElevatedButton(
                       onPressed: () => scanQR(),
                       style: ElevatedButton.styleFrom(
                         primary: Colors.green,
@@ -143,19 +143,20 @@ class _ScannerState extends State<CartonScan> {
                         ),
                       ),
                       child: const Text('Escanear QR')),
-                  Text((() {
-                    if (_scanBarcode == "Unknown") {
-                      return "";
-                    } else if (_scanBarcode == 'verde carton') {
-                      docUser.update({'points': FieldValue.increment(1)});
-                      docUser.update({'carton': FieldValue.increment(1)});
-                      return "Bien hecho!! Reciclaste cartón.";
-                    }
-                    return "Recipiente incorrecto";
-                  })())
-                ],
+                    Text((() {
+                      if (_scanBarcode == "Unknown") {
+                        return "";
+                      } else if (_scanBarcode == 'verde carton') {
+                        docUser.update({'points': FieldValue.increment(1)});
+                        docUser.update({'carton': FieldValue.increment(1)});
+                        return "Bien hecho!! Reciclaste cartón.";
+                      }
+                      return "Recipiente incorrecto";
+                    })())
+                  ],
+                ),
               ),
-            ));
+            );
           },
         ),
       ),
