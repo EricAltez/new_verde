@@ -28,7 +28,7 @@ class LoginPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Expanded(child: Image.asset('images/verdelogopng.png')),
+              Expanded(child: Image.asset('')),
               TextField(
                 controller: emailController,
                 cursorColor: Colors.black,
