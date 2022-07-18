@@ -72,8 +72,5 @@ flutter {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.mapbox.maps:android:10.6.0'
-    implementation ('com.mapbox.maps:android:10.6.0'){
-    exclude group: 'group_name', module: 'module_name'
-    }
+    implementation 'com.google.firebase:firebase-auth-ktx:21.0.5'
 }

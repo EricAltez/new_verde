@@ -5,8 +5,9 @@ import 'firebase_options.dart';
 import 'package:new_verde/pages/map.dart';
 import 'package:new_verde/widgets/utils.dart';
 import 'pages/index.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-void main() async {
+Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: user != null ? 'home' : 'login',
       routes: {
-        'home': (_) =>  const HomePage(),
+        'home': (_) => const HomePage(),
         'login': (_) => const LoginPage(),
         'mappage': (_) => const MapPage(),
         'scancarton': (_) => const CartonScan(),
@@ -41,5 +42,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
