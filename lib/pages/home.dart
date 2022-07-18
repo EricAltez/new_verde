@@ -20,13 +20,10 @@ class _HomePageState extends State<HomePage> {
   final docUser = FirebaseFirestore.instance
       .collection('users')
       .doc('FLfuMOeM7wkBWziXLQUs');
-  final a =
-      'https://media-private.canva.com/2i_-Y/MAFFrN2i_-Y/1/s.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJWF6QO3UH4PAAJ6Q%2F20220717%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220717T104318Z&X-Amz-Expires=79513&X-Amz-Signature=ae378aef213b2b58617d743c124e3ba9ef1f2320d29b6608aa99cbce8bb926af&X-Amz-SignedHeaders=host&response-expires=Mon%2C%2018%20Jul%202022%2008%3A48%3A31%20GMT';
-  final b =
-      'https://media-private.canva.com/HzVx4/MAFFt2HzVx4/1/s.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJWF6QO3UH4PAAJ6Q%2F20220718%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220718T021603Z&X-Amz-Expires=22195&X-Amz-Signature=f57f61dfcfe610b1dcceda4e20f1a178eb9b7d665b6372b22740131377193790&X-Amz-SignedHeaders=host&response-expires=Mon%2C%2018%20Jul%202022%2008%3A25%3A58%20GMT';
-  final c = 'https://media-private.canva.com/46ziE/MAFFt146ziE/1/s.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJWF6QO3UH4PAAJ6Q%2F20220718%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220718T015924Z&X-Amz-Expires=24006&X-Amz-Signature=c5dc768df73c1a1f14183f916c86f9cb09bf829cef977c94f471c8704f7337f1&X-Amz-SignedHeaders=host&response-expires=Mon%2C%2018%20Jul%202022%2008%3A39%3A30%20GMT';
-  final d =
-      'https://media-private.canva.com/EBghI/MAFFtxEBghI/1/s.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJWF6QO3UH4PAAJ6Q%2F20220717%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220717T232522Z&X-Amz-Expires=32615&X-Amz-Signature=72cc20812a75d3337a9c931702fd2dee130954e7a9b42c20938e4857b5615d59&X-Amz-SignedHeaders=host&response-expires=Mon%2C%2018%20Jul%202022%2008%3A28%3A57%20GMT';
+  final a = 'https://github.com/EricAltez/new_verde/blob/17-07/images/semilla_v3.png?raw=true';
+  final b = 'https://github.com/EricAltez/new_verde/blob/17-07/images/planta.png?raw=true';
+  final c = 'https://github.com/EricAltez/new_verde/blob/17-07/images/planta_grande.png?raw=true';
+  final d = 'https://github.com/EricAltez/new_verde/blob/17-07/images/arbol.png?raw=true';
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
@@ -72,38 +69,40 @@ class _HomePageState extends State<HomePage> {
             } else if (snapshot.hasData) {
               final user = snapshot.data;
               return user == null
-                ? const Center(child: Text('No hay usuario'))
-                : Scaffold(
-                    body: Center(
-                      child: SafeArea(
-                        child: Column(
-                            children: [Expanded(child: buildUser(user))]),
+                  ? const Center(child: Text('No hay usuario'))
+                  : Scaffold(
+                      body: Center(
+                        child: SafeArea(
+                          child: Column(
+                              children: [Expanded(child: buildUser(user))]),
+                        ),
                       ),
-                    ),
-                    bottomNavigationBar: BottomNavigationBar(
-                      onTap: (index) {
-                        if (index == 2) {
-                          launchUrlString("https://verde-mvp.blogspot.com/");
-                        }
-                        if (index == 1) {
-                          Navigator.pushNamed(context, 'scanpage');
-                        }
-                        if (index == 0) {
-                          Navigator.pushNamed(context, 'mappage');
-                        }
-                      },
-                      backgroundColor: const Color.fromARGB(64, 131, 236, 127),
-                      currentIndex: paginaActual,
-                      items: const [
-                        BottomNavigationBarItem(
-                            icon: Icon(Icons.map), label: 'Mapa'),
-                        BottomNavigationBarItem(
-                            icon: Icon(Icons.qr_code), label: 'Scanner QR'),
-                        BottomNavigationBarItem(
-                            icon: Icon(Icons.text_format), label: 'Blog'),
-                      ],
-                    ),
-                  );
+                      bottomNavigationBar: BottomNavigationBar(
+                        onTap: (index) {
+                          if (index == 2) {
+                            launchUrlString("https://verde-mvp.blogspot.com/");
+                          }
+                          if (index == 1) {
+                            Navigator.pushNamed(context, 'scanpage');
+                          }
+                          if (index == 0) {
+                            Navigator.pushNamed(context, 'mappage');
+                          }
+                        },
+                        currentIndex: paginaActual,
+                        items: const [
+                          BottomNavigationBarItem(
+                              icon: Icon(Icons.map),
+                              label: 'Mapa',
+                              backgroundColor: Colors.green,
+                              ),
+                          BottomNavigationBarItem(
+                              icon: Icon(Icons.qr_code), label: 'Scanner QR', backgroundColor: Colors.green,),
+                          BottomNavigationBarItem(
+                              icon: Icon(Icons.text_format), label: 'Blog', backgroundColor: Colors.green,),
+                        ],
+                      ),
+                    );
             } else {
               return const Center(child: CircularProgressIndicator());
             }

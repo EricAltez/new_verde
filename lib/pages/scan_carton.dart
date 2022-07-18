@@ -127,7 +127,7 @@ class _ScannerState extends State<CartonScan> {
                             // leading: Icon(Icons.photo_album, color: Colors.blue),
                             title: Text("Modo correcto de reciclar cartón"),
                             subtitle: Text(
-                                "Debe estar seco y limpio."),
+                                "Debe estar seco, limpio y libre de restos de comida."),
                           ),
                         ],
                       ),
