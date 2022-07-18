@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
       FirebaseFirestore.instance.collection('users');
   final docUser = FirebaseFirestore.instance
       .collection('users')
-      .doc('FLfuMOeM7wkBWziXLQUs');
+      .doc('fmXGtUKgGWfYQXbYRY2q');
   final a = 'https://github.com/EricAltez/new_verde/blob/17-07/images/semilla_v3.png?raw=true';
   final b = 'https://github.com/EricAltez/new_verde/blob/17-07/images/planta.png?raw=true';
   final c = 'https://github.com/EricAltez/new_verde/blob/17-07/images/planta_grande.png?raw=true';
@@ -349,7 +349,7 @@ class _HomePageState extends State<HomePage> {
   Future<UserM?> readUser() async {
     final docUser = FirebaseFirestore.instance
         .collection('users')
-        .doc('FLfuMOeM7wkBWziXLQUs');
+        .doc('fmXGtUKgGWfYQXbYRY2q');
     final snapshot = await docUser.get();
 
     if (snapshot.exists) {
