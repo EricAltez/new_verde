@@ -66,7 +66,8 @@ flutter:
     - images/carton.png
     - images/botella.png
     - images/mapa.png
-    - images/fondo_login.png
+    - images/fondo_login2.png
+    - images/verde_es_mejor.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

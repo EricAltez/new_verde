@@ -15,7 +15,7 @@ class LoginPage extends StatelessWidget {
       child: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("images/fondo_login.png"),
+            image: AssetImage("images/fondo_login2.png"),
             fit: BoxFit.cover,
           ),
         ),
@@ -28,7 +28,7 @@ class LoginPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Expanded(child: Image.asset('')),
+              Expanded(child: Image.asset('images/verde_es_mejor.png')),
               TextField(
                 controller: emailController,
                 cursorColor: Colors.black,

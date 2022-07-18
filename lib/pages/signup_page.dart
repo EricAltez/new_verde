@@ -72,7 +72,7 @@ class _SignUpPageState extends State<SignUpPage> {
         child: Container(
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("images/fondo_login.png"),
+              image: AssetImage("images/fondo_login2.png"),
               fit: BoxFit.cover,
             ),
           ),
@@ -85,7 +85,7 @@ class _SignUpPageState extends State<SignUpPage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Expanded(child: Image.asset('')),
+                Expanded(child: Image.asset('images/verde_es_mejor.png')),
                 TextFormField(
                   controller: _nameController,
                   cursorColor: Colors.black,
