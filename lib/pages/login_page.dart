@@ -1,18 +1,46 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:new_verde/firebase_options.dart';
 import 'package:new_verde/widgets/utils.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final emailController = TextEditingController();
-    final passwordController = TextEditingController();
+  State<LoginPage> createState() => _LoginPageState();
+}
 
-    return Scaffold(
-      body: SafeArea(
-        child: Container(
+class _LoginPageState extends State<LoginPage> {
+  late final TextEditingController _email;
+  late final TextEditingController _password;
+
+  @override
+  void initState() {
+    _email = TextEditingController();
+    _password = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _email.dispose();
+    _password.dispose();
+    super.dispose();
+  }
+
+  @override Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+        body: FutureBuilder(
+          future: Firebase.initializeApp(
+            options: DefaultFirebaseOptions.currentPlatform,
+          ),
+          builder: (context, snapshot) {
+            switch (snapshot.connectionState) {
+              case ConnectionState.done:
+              return Column(
+                children: [Container(
           decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage("images/fondo_login2.png"),
@@ -30,7 +58,8 @@ class LoginPage extends StatelessWidget {
               children: [
                 Expanded(child: Image.asset('images/verde_es_mejor2.png')),
                 TextField(
-                  controller: emailController,
+                  controller: _email,
+                  enableSuggestions: false,
                   cursorColor: Colors.black,
                   decoration: InputDecoration(
                       filled: true,
@@ -44,7 +73,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 4),
                 TextField(
-                  controller: passwordController,
+                  controller: _password,
                   textInputAction: TextInputAction.done,
                   decoration: InputDecoration(
                       filled: true,
@@ -63,12 +92,11 @@ class LoginPage extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(18.0),
                       side: const BorderSide(color: Colors.black),
-                    ),
+                    ), backgroundColor: Colors.lightGreen,
                     side: const BorderSide(
                       color: Colors.black,
                       width: 0.5,
                     ),
-                    primary: Colors.lightGreen,
                     minimumSize: const Size.fromHeight(50),
                   ),
                   icon: const Icon(Icons.lock_open, size: 32),
@@ -76,8 +104,8 @@ class LoginPage extends StatelessWidget {
                     'Ingresar',
                     style: TextStyle(fontSize: 24),
                   ),
-                  onPressed: () => _signIn(context, emailController.text.trim(),
-                      passwordController.text.trim()),
+                  onPressed: () => _signIn(context, _email.text.trim(),
+                      _password.text.trim()),
                 ),
                 const SizedBox(height: 15),
                 Row(
@@ -104,10 +132,14 @@ class LoginPage extends StatelessWidget {
               ],
             ),
           ),
-        ),
-      ),
-    );
+          ),
+              ),
+              
   }
+  )
+  )
+  );
+
 
   void _signIn(BuildContext context, String email, String password) {
     showDialog(
